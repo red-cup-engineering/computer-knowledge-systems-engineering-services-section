@@ -1,0 +1,54 @@
+{
+  "name": "@red-cup-engineering/geode",
+  "version": "0.2.1",
+  "type": "module",
+  "description": "GEODE \u2014 the Graphical Entity Ontology Difference Engine, a CAIRN/FeltOS/TUFTE knowledge-workbench application.",
+  "engines": {
+    "node": ">=24"
+  },
+  "exports": {
+    ".": "./src/index.mjs",
+    "./workspace": "./src/workspace.mjs",
+    "./concept-index": "./src/concept-index.mjs",
+    "./declared-relations": "./src/declared-relations.mjs",
+    "./release-graph": "./src/release-graph.mjs",
+    "./feltos-workspace-graph": "./src/feltos-workspace-graph.mjs",
+    "./tufte": "./src/tufte.mjs",
+    "./authoring": "./src/vault-authoring.mjs",
+    "./victor-release": "./src/victor-release.mjs",
+    "./vocabulary": "./src/vocabulary.mjs",
+    "./mcp-tools": "./src/mcp-tools.mjs"
+  },
+  "files": [
+    "content",
+    "docs",
+    "public",
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "check": "for f in src/*.mjs public/*.js; do node --check \"$f\" || exit 1; done",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@red-cup-engineering/cairn": "0.1.0",
+    "@red-cup-engineering/computer-data-engine": "0.10.0",
+    "@red-cup-engineering/eavt": "0.10.2",
+    "@red-cup-engineering/feltos": "0.18.3",
+    "@red-cup-engineering/graph-data-service": "0.2.2",
+    "@red-cup-engineering/agentic-knowledge-engine": "0.1.3",
+    "@red-cup-engineering/price-predicate-identification-service": "0.1.0",
+    "@red-cup-engineering/project-file-url-filepath-service": "0.1.0",
+    "@red-cup-engineering/agentic-relation-engine": "0.10.1",
+    "@red-cup-engineering/term-engineering-services-section": "0.2.1",
+    "@red-cup-engineering/tufte": "0.12.0",
+    "@red-cup-engineering/markdown-engineering-services-section": "0.5.0",
+    "@lenticule-science/metrologic": "file:../../../../../computer-math-system-services-section/apps/metrologic"
+  },
+  "peerDependencies": {
+    "@red-cup-engineering/victor": "0.1.15"
+  },
+  "devDependencies": {
+    "@red-cup-engineering/victor": "0.1.15"
+  }
+}

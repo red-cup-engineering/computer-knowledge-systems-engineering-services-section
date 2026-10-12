@@ -1,0 +1,103 @@
+{
+  "id": "corpus-browsed-by-typed-relations",
+  "name": "The corpus browsed by typed relations: resolving wikilinks, notes pointing to terms, papers citing, typed glossary entries, renamed concepts findable",
+  "kind": "requirement",
+  "raised-by": "emsenn",
+  "asks": "The deeply nested paths is not the issue. The \"that we are browsing it by file paths and not relations\" is the issue lol. [...] For example, we're meant to be able to use [[wikilinks]] in our content, and obviously just, nothing does. But there are meant to be rules like \"notes point to terms\" \"research papers don't have links, but do have references/citations\" and other things that like, actually help make the content more readable. [...] What is the issue is that that there is no like, typed edge graph tooling, which is ridiculous given, well, how much fucking research we have on exactly that shit :P",
+  "met-when": [
+    {
+      "cell": "typed-relations:note-held",
+      "target": "held",
+      "command": "sh -c 'test -f lib/emsenn/services/561-group/services/science-services-section/services/information-science-services-section/services/knowledge-services-section/services/knowledge-organization-services-section/content/text/documents/articles/notes/2026/10/10/2026-10-10-note-on-browsing-the-corpus-by-relations.md'",
+      "expected-exit": 0
+    }
+  ],
+  "tier": "strategic",
+  "x-provenance": {
+    "recorded-by": "Red Cup Engineer Senior (pass obsmetrologia-math of debt-2026-10-09-leader-words-held-in-corpus)",
+    "recorded-on": "2026-10-10",
+    "customer": "urn:leader:emsenn",
+    "basis": "The Leader's utterances cited below, read in full. The asks field quotes them; the requirements are their EARS rendering and carry no scope the words do not.",
+    "leader-utterances": [
+      "ni:///sha-256;Cfoda0p2scRSRKEikQC75wvKEMApUjhBjErEJazj6UU",
+      "ni:///sha-256;F0QpJQC4J53g-S8hziCYqiMPb6AC3kXE9HO90NQrf2A",
+      "ni:///sha-256;WK_xvj7f2db-snIePTmeNVVK_qfs7Vpj0WySnTz9sKc",
+      "ni:///sha-256;oNdoHcyJVhsZk-L0W9ujAeM5dipW38cafQeZ6pCWPhE"
+    ],
+    "board-opening": {
+      "speech-act": "request",
+      "need": "The Group's corpus is read through typed relations between its records, with links that resolve and renamed concepts that stay findable.",
+      "scope": [
+        "section:services/engineering-services-section/services/computer-engineering-services-section/services/computer-systems-engineering-services-section/services/computer-knowledge-systems-services-section"
+      ],
+      "requirements": [
+        {
+          "id": "R1",
+          "says": "The corpus system shall resolve each [[wikilink]] in house content to the one glossary entry or record it names.",
+          "class": "functional",
+          "moscow": "must",
+          "rationale": "The Leader: \"we're meant to be able to use [[wikilinks]] in our content, and obviously just, nothing does\" (2026-09-24)"
+        },
+        {
+          "id": "R2",
+          "says": "The corpus system shall present the corpus as a graph of typed edges between records, browsable and queryable by relation rather than by file path.",
+          "class": "functional",
+          "moscow": "must",
+          "rationale": "The Leader: \"The 'that we are browsing it by file paths and not relations' is the issue\"; \"there is no like, typed edge graph tooling\" (2026-09-24)"
+        },
+        {
+          "id": "R3",
+          "says": "The corpus system shall check that each note links the glossary terms it uses.",
+          "class": "functional",
+          "moscow": "should",
+          "rationale": "The Leader: \"rules like 'notes point to terms'\" (2026-09-24)"
+        },
+        {
+          "id": "R4",
+          "says": "The corpus system shall check that research papers carry references and citations and no inline links.",
+          "class": "functional",
+          "moscow": "should",
+          "rationale": "The Leader: \"'research papers don't have links, but do have references/citations'\" (2026-09-24)"
+        },
+        {
+          "id": "R5",
+          "says": "The corpus system shall type each glossary entry, holding objects as terms and theorems and concepts as concepts.",
+          "class": "functional",
+          "moscow": "should",
+          "rationale": "The Leader: \"objects are terms, theorems are concepts, concepts are concetpts ... most are likely types of glosarry entry\" (2026-09-24)"
+        },
+        {
+          "id": "R6",
+          "says": "The corpus system shall find every reference to a concept, including references under the concept's former names.",
+          "class": "functional",
+          "moscow": "must",
+          "rationale": "The Leader: \"no one can just do [[semiotic cell]] in a note and have it reference the correct term, can't just find all the references of it, can't find 'okay, we used to call semiotic cells \"closure cells\" so let's look at that tool'\" (2026-09-25)"
+        }
+      ],
+      "conditions": [
+        {
+          "id": "typed-relations:note-held",
+          "says": "The science note grounding these requirements is held.",
+          "method": "inspection",
+          "verifies": [
+            "R1",
+            "R2",
+            "R3",
+            "R4",
+            "R5",
+            "R6"
+          ]
+        }
+      ]
+    },
+    "held-research": [
+      "science-services-section/services/information-science-services-section/services/knowledge-services-section/services/knowledge-organization-services-section/content/text/documents/articles/notes/2026/10/10/2026-10-10-note-on-browsing-the-corpus-by-relations.md",
+      "science-services-section/services/information-science-services-section/services/knowledge-services-section/services/knowledge-organization-services-section/content/text/documents/articles/notes/2026/09/30/2026-09-30-the-corpus-knowledge-graph-program.md"
+    ],
+    "sign-cell": {
+      "type": "emsenn/schema/requirement",
+      "mark": "ni:///sha-256;_4q1-RzKA291dyj04WY38Rr9szRBINrd6byz-fex4NE",
+      "cell": "ni:///sha-256;OI6OwyMeqYym8c8XrMu2Lm5FXnVWlY6ohqVlqErBABw"
+    }
+  }
+}

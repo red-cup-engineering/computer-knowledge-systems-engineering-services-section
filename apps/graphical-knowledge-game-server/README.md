@@ -1,0 +1,79 @@
+# graphical-knowledge-game-server (VaultMaze)
+
+VaultMaze is Red Cup Engineering's composable knowledge-navigation and learning
+application. Its product bar is to meet and beat Microsoft MindMaze, including
+the parts that make knowledge spaces explorable, memorable, adaptive, and fun.
+
+VaultMaze is not the content repository. CAIRN supplies admitted content-archive
+operations. VaultMaze turns those resources and their typed relationships into
+rooms, passages, review state, and user-configured navigation. VICTOR supplies
+the website boundary, and TUFTE supplies the Tiling User Form Topology Engine
+used to arrange the active experience.
+
+L-Space is one VaultMaze instance. Its admission policy may instead mount GEODE
+for a principal authorized to inspect and revise the underlying entity graph.
+That selection belongs to the L-Space application boundary; neither CAIRN nor
+VaultMaze should infer authority from a rendering choice.
+
+## Projection and application
+
+VaultMaze is projected over a VICTOR vault catalog. A site's `victor.config.mjs`
+sets `catalog: { dialect: 'vault' }`, `home: false`, and mounts the projector
+and the application:
+
+```js
+import { createVaultMazeProjector } from '@red-cup-engineering/graphical-knowledge-game-server/projector';
+import { createVaultMazeApplication } from '@red-cup-engineering/graphical-knowledge-game-server/application';
+import { createMemoryReviewStore } from '@red-cup-engineering/graphical-knowledge-game-server/review-store';
+
+export default {
+  configVersion: 1,
+  site: { name: 'A Vault', baseIri: 'https://vault.example/' },
+  catalog: { dialect: 'vault', exclude: ['drafts'] },
+  home: false, archives: false, search: false, tufte: false,
+  projectors: [createVaultMazeProjector({ title: 'A Vault' })],
+  applications: [createVaultMazeApplication({ reviews: createMemoryReviewStore(), subjectOf: () => null })],
+};
+```
+
+The projector emits the browser application at `/`, the browser engine it
+runs on (the scheduler and light cone from the education platform, room search
+from CAIRN, the tile renderer from TUFTE, projected from those packages rather
+than copied), and the content-addressed release the application reads:
+`vault/index.json`, `vault/manifest.json`, `vault/rooms/<sha256-room-id>.json`,
+`vault/views/garden.json`, `vault/views/halls.json`, and the chunked voxel view rooted at
+`vault/views/voxels/index.json` (the `vault/views/voxels.json` logical release view), plus the anonymous surface
+under `vault/public/`, which receives only rooms whose own frontmatter declared
+`visibility: public`. Every body is rendered by VICTOR; nothing here carries a
+second Markdown renderer.
+
+The anonymous surface also carries the public glossary vocabulary,
+`vault/public/glossary.jsonld`, linked from `surface.json` and the manifest. It holds the
+glossary term carriers among the public rooms, read from their own files and projected by the
+term owner (term-engineering's `projectGlossarySkos`) as SKOS concepts and schema.org
+`DefinedTerm`s. Each concept's `url` is the public page that presents it. The projection
+option `glossary.sectionPath` names where the vault sits in the 561 Group, so concept IRIs
+(`https://561.group/knowledge/<section path>/<identity>`) are the ones the group's own
+vocabulary uses.
+
+## Walk
+
+The **Walk** view is a blockstep first-person reading of the chunked voxel release. Arrow keys or
+WASD turn and step, E/Enter answers a faced gate or takes a portal, and M toggles the existing map.
+Its move log stays in the tab's `sessionStorage` and can be downloaded as JSON; the shared replay
+position contains only location, facing, room, and gates carved during that play. Review-derived
+light remains a private observation map which renders unlit chambers as fog.
+
+The application is one resource, `/api/v1/reviews`, over a review store. Who
+the reader is comes from the admission boundary as a pseudonymous subject
+through `subjectOf(context)`; with nobody admitted, reviews stay closed.
+`createReviewStore({ root })` keeps each admitted review as a row in the house
+semantic record journal beneath the deployment state root, and reads the latest
+row for each card belonging to that pseudonymous subject.
+
+The current package owns the existing typed configuration, world composition,
+and passage evaluation functions. VaultMaze doors now check typed and multiple-choice
+answers, choose competitive distractors by concept-lattice proximity, derive grades from
+those answers, and surface indistinct-room warnings for corpus repair. Remaining competitive
+work includes adaptive spatial navigation, durable per-reader learning state, multiplayer
+knowledge trails, accessible direct manipulation, and measured comparison against MindMaze.

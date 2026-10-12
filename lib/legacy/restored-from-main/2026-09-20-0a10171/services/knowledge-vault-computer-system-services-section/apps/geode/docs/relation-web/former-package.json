@@ -1,0 +1,45 @@
+{
+  "name": "@red-cup-engineering/drew",
+  "version": "0.1.1",
+  "type": "module",
+  "description": "Directed Relation Entity Web: substrate observations on the shared graph carrier, interpreted by profile-parametric Predicate Algebra Modeling.",
+  "keywords": [
+    "cell-graph",
+    "directed-relation",
+    "entity-web",
+    "graph",
+    "predication"
+  ],
+  "license": "Apache-2.0",
+  "exports": {
+    ".": "./src/index.mjs",
+    "./pam": "./src/pam.mjs",
+    "./graph": "./src/drew.mjs",
+    "./app": "./src/app.mjs",
+    "./adapters": "./src/adapters.mjs",
+    "./projections": "./src/projections.mjs",
+    "./cell-moves": "./src/cell-moves.mjs",
+    "./profiles/four": "./src/profiles/four.mjs",
+    "./substrates": "./src/substrates.mjs",
+    "./mcp": "./src/mcp.mjs"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "source-ledger.md",
+    "architecture.md",
+    "consumers.md"
+  ],
+  "scripts": {
+    "check": "node --check src/*.mjs src/profiles/*.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@lenticule-science/metrologic/articulation": "0.2.6",
+    "@red-cup-engineering/graph-data-service": "0.2.0",
+    "@red-cup-engineering/ni-services-section": "0.1.2"
+  }
+}

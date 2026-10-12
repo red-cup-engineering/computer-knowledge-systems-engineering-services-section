@@ -1,0 +1,36 @@
+{
+  "name": "@red-cup-engineering/medical-glossary-delivery-service",
+  "version": "0.2.0",
+  "description": "Search and delivery runtime for the scientific medical glossary corpus.",
+  "type": "module",
+  "exports": {
+    ".": "./src/medical-glossary.mjs",
+    "./glossary-index": "./data/records/glossary-index-records/glossary-index.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src/",
+    "scripts/",
+    "data/records/glossary-index-records/glossary-index.json"
+  ],
+  "scripts": {
+    "derive": "node scripts/derive-medical-glossary-index.mjs",
+    "check": "node --check src/*.mjs && node --check scripts/*.mjs && node --check test/*.test.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@red-cup-engineering/computer-file-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/term-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/javascript-file-services-section": "workspace:*"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "medical-glossary",
+    "document-delivery"
+  ]
+}

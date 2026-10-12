@@ -1,0 +1,17 @@
+{
+  "searches": [],
+  "candidates": [
+    {
+      "item": { "id": "existing-doi", "type": "article-journal", "title": "Post-viral fatigue after SARS-CoV-2 infection", "DOI": "10.1000/watchtest.001" },
+      "source": "openalex",
+      "searchId": "openalex::2026-08-01::long covid",
+      "dedupeKey": "doi:10.1000/watchtest.001"
+    },
+    {
+      "item": { "id": "existing-title", "type": "article-journal", "title": "Post-Exertional Malaise In Myalgic Encephalomyelitis" },
+      "source": "pubmed",
+      "searchId": "pubmed::2026-08-01::post-exertional malaise",
+      "dedupeKey": "title:post exertional malaise in myalgic encephalomyelitis"
+    }
+  ]
+}

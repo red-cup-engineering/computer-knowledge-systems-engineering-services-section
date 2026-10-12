@@ -1,0 +1,67 @@
+{
+  "name": "@red-cup-engineering/knowledge-vault-catalogue",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "knowledge-vault-catalogue (CAIRN): the headless Content Archive Inspection, Revision, and Navigation CLI/API for content vaults.",
+  "engines": {
+    "node": ">=24"
+  },
+  "bin": {
+    "cairn": "./scripts/cairn.mjs",
+    "cairn-mcp": "./apps/mcp-stdio.mjs"
+  },
+  "exports": {
+    "./markdown-vault": "./src/markdown-vault.mjs",
+    "./room-index-search": "./src/room-index-search.mjs",
+    "./compile": "./scripts/compile.mjs",
+    "./dialect": "./scripts/dialect.mjs",
+    "./stability": "./scripts/stability.mjs",
+    "./cards": "./scripts/cards.mjs",
+    "./kata": "./scripts/kata.mjs",
+    "./canonical": "./scripts/canonical.mjs",
+    "./build-layout": "./scripts/build-layout.mjs",
+    "./wikilink": "./scripts/wikilink.mjs",
+    "./docindex": "./scripts/docindex.mjs",
+    "./walk": "./scripts/walk.mjs",
+    "./frontmatter": "./scripts/frontmatter.mjs",
+    "./adapters/house-md": "./scripts/adapters/house-md.mjs",
+    "./adapters/obsidian-md": "./scripts/adapters/obsidian-md.mjs",
+    "./adapters/org": "./scripts/adapters/org.mjs",
+    "./note-contract": "./scripts/note-contract.mjs",
+    "./filing": "./scripts/filing.mjs",
+    "./fibration": "./scripts/fibration.mjs",
+    "./archive": "./src/archive.mjs",
+    "./server": "./src/server.mjs",
+    "./vault-mcp": "./src/vault-mcp.mjs",
+    "./mcp-tools": "./src/mcp-tools.mjs"
+  },
+  "files": [
+    "content",
+    "fixtures",
+    "scripts",
+    "src",
+    "README.md",
+    "data",
+    "apps"
+  ],
+  "scripts": {
+    "check": "node --check src/*.mjs scripts/*.mjs scripts/adapters/*.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@lenticule-science/metrologic": "0.3.0",
+    "@red-cup-engineering/computer-code-engineering-services-section": "0.1.0",
+    "@red-cup-engineering/computer-networking-engineering-services-section": "0.1.0",
+    "@red-cup-engineering/computer-text-content-engineering-services-section": "0.1.0",
+    "@red-cup-engineering/cryptographic-computer-data-engineering-services-section": "0.3.0",
+    "@red-cup-engineering/eavt": "0.10.4",
+    "@red-cup-engineering/filepath-services-section": "0.1.0",
+    "@red-cup-engineering/javascript-node-services-section": "0.3.0",
+    "@red-cup-engineering/json-schema-services-section": "0.3.0",
+    "@red-cup-engineering/json-services-section": "1.0.0",
+    "@red-cup-engineering/markdown-engineering-services-section": "0.5.0",
+    "@red-cup-engineering/mcp-engineering-services-section": "0.1.0",
+    "@red-cup-engineering/rdf-data-model-services-section": "0.1.0",
+    "@red-cup-engineering/term-engineering-services-section": "0.3.0"
+  }
+}

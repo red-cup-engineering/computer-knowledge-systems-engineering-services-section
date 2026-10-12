@@ -1,0 +1,53 @@
+{
+  "name": "@red-cup-engineering/geode",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "GEODE — the Graphical Entity Ontology Difference Engine, composed from CAIRN, VICTOR, and TUFTE.",
+  "engines": {
+    "node": ">=24"
+  },
+  "exports": {
+    ".": "./src/index.mjs",
+    "./workspace": "./src/workspace.mjs",
+    "./concept-index": "./src/concept-index.mjs",
+    "./tufte": "./src/tufte.mjs",
+    "./vault-authoring": "./src/vault-authoring.mjs",
+    "./authoring": "./src/vault-authoring.mjs",
+    "./victor-release": "./src/victor-release.mjs"
+  },
+  "files": [
+    "content",
+    "docs",
+    "public",
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "check": "node --check src/*.mjs public/*.js",
+    "test": "node --test test/*.test.mjs",
+    "verify": "npm run check && npm test && npm pack --dry-run"
+  },
+  "dependencies": {
+    "@red-cup-engineering/cairn": "file:../knowledge-vault",
+    "@red-cup-engineering/fae": "file:../../../../../agent-computer-system-engineering-services-section/services/agent-computer-platform-system-engineering-services-section/services/flatfile-agent-resource-system-engineering-services-section/apps/fae",
+    "@red-cup-engineering/knowing": "file:../../../../../agent-computer-system-engineering-services-section/apps/knowing",
+    "@red-cup-engineering/drew": "file:../../../../../../../computer-data-services-section/apps/drew",
+    "@red-cup-engineering/bare-cedar-fog-markdown-vault-services-section": "file:../../../../../../../../../../../561-group-services-section/services/561-group-engineering-services-section/services/561-group-computer-engineering-services-section/services/computer-machine-services-section/services/persistent-computer-machine-services-section/services/bare-cedar-fog-services-section/services/bare-cedar-fog-markdown-vault-services-section",
+    "@red-cup-engineering/markdown-vault-directory-services-section": "file:../../../../../../../computer-data-services-section/services/computer-data-type-services-section/services/computer-text-data-services-section/services/markdown-services-section/services/markdown-vault-services-section/services/markdown-vault-directory-services-section",
+    "@red-cup-engineering/resolve-markdown-vault-relation-keys-service": "file:../../../../../../../computer-data-services-section/services/computer-data-type-services-section/services/computer-text-data-services-section/services/markdown-services-section/services/markdown-vault-services-section/services/resolve-markdown-vault-relation-keys-service",
+    "@red-cup-engineering/markdown-vault-graph-services-section": "file:../../../../../../../computer-data-services-section/services/computer-data-type-services-section/services/computer-text-data-services-section/services/markdown-services-section/services/markdown-vault-services-section/services/markdown-vault-graph-services-section",
+    "@red-cup-engineering/observe-markdown-document-index-service": "file:../../../../../../../computer-data-services-section/services/computer-data-type-services-section/services/computer-text-data-services-section/services/markdown-services-section/services/markdown-indexing-services-section/services/observe-markdown-document-index-service",
+    "@red-cup-engineering/read-markdown-file-service": "file:../../../../../../../computer-data-services-section/services/computer-data-type-services-section/services/computer-text-data-services-section/services/markdown-services-section/services/markdown-file-services-section/services/read-markdown-file-service",
+    "@red-cup-engineering/read-markdown-frontmatter-service": "file:../../../../../../../computer-data-services-section/services/computer-data-type-services-section/services/computer-text-data-services-section/services/markdown-services-section/services/markdown-frontmatter-services-section/services/read-markdown-frontmatter-service",
+    "@red-cup-engineering/relating": "file:../../../../../agent-computer-system-engineering-services-section/apps/relating",
+    "@red-cup-engineering/render-markdown-block-html-service": "file:../../../../../../../computer-data-services-section/services/computer-data-type-services-section/services/computer-text-data-services-section/services/markdown-services-section/services/markdown-rendering-services-section/services/render-markdown-block-html-service",
+    "@red-cup-engineering/web-tufte-gui-services-section": "file:../../../../../web-services-section/services/web-interface-services-section/services/web-tufte-gui-services-section",
+    "@red-cup-engineering/write-markdown-file-service": "file:../../../../../../../computer-data-services-section/services/computer-data-type-services-section/services/computer-text-data-services-section/services/markdown-services-section/services/markdown-file-services-section/services/write-markdown-file-service"
+  },
+  "peerDependencies": {
+    "@red-cup-engineering/victor": "0.1.2"
+  },
+  "devDependencies": {
+    "@red-cup-engineering/victor": "file:../../../../../web-services-section/services/web-server-services-section/services/website-server-services-section/apps/victor"
+  }
+}

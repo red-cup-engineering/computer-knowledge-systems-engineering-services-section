@@ -1,0 +1,82 @@
+{
+  "name": "@red-cup-engineering/vault-compiler",
+  "version": "0.1.4",
+  "type": "module",
+  "description": "Compile house Markdown, Obsidian, or minimal-v1 org vaults into a read-only World JSON graph of rooms, doors, halls, and cards. Includes dialect detection, house/Obsidian/org adapters, link resolution, canonical validation, and layout construction.",
+  "keywords": [
+    "561-group",
+    "knowledge-vault",
+    "vault-compiler",
+    "obsidian",
+    "org-roam",
+    "vaultmaze",
+    "formal-concept-analysis"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "exports": {
+    ".": {
+      "default": "./src/index.mjs"
+    },
+    "./frontmatter": {
+      "default": "./src/frontmatter.mjs"
+    },
+    "./fca": {
+      "default": "./src/fca.mjs"
+    },
+    "./stability": {
+      "default": "./src/stability.mjs"
+    },
+    "./cards": {
+      "default": "./src/cards.mjs"
+    },
+    "./kata": {
+      "default": "./src/kata.mjs"
+    },
+    "./walk": {
+      "default": "./src/walk.mjs"
+    },
+    "./docindex": {
+      "default": "./src/docindex.mjs"
+    },
+    "./wikilink": {
+      "default": "./src/wikilink.mjs"
+    },
+    "./dialect": {
+      "default": "./src/dialect.mjs"
+    },
+    "./canonical": {
+      "default": "./src/canonical.mjs"
+    },
+    "./compile": {
+      "default": "./src/compile.mjs"
+    },
+    "./build-layout": {
+      "default": "./src/build-layout.mjs"
+    },
+    "./adapters/house-md": {
+      "default": "./src/adapters/house-md.mjs"
+    },
+    "./adapters/obsidian-md": {
+      "default": "./src/adapters/obsidian-md.mjs"
+    },
+    "./adapters/org": {
+      "default": "./src/adapters/org.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "check": "for f in src/*.mjs src/adapters/*.mjs; do node --check \"$f\" || exit 1; done",
+    "test": "node --test src/*.test.mjs src/adapters/*.test.mjs"
+  },
+  "dependencies": {
+    "@red-cup-engineering/markdown-engineering-services-section": "0.5.0",
+    "@lenticule-science/metrologic": "file:../../../../../computer-math-system-services-section/apps/metrologic"
+  }
+}

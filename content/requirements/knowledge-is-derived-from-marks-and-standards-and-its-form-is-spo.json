@@ -1,0 +1,148 @@
+{
+  "id": "knowledge-is-derived-from-marks-and-standards-and-its-form-is-spo",
+  "name": "The Group's knowledge system derives truth from marks, mathematics and standards, holds all data as subject-predicate-object, and lets attention raise a resource's care",
+  "kind": "requirement",
+  "raised-by": "emsenn",
+  "asks": "Leader utterances of 2026-09-11 to 2026-09-25 (pass general-1): all data is SPO; knowledge graphs are meshy DAGs; formal concept analysis is built from marks outward; truth is derived by mathematics, standards conformance and research and not by human ruling; attention percolates a resource toward better care; grade annotations are derived, not handwritten; ordinals and fractions are preferred over integers; Thing and Cell are distinct types.",
+  "met-when": [
+    {
+      "cell": "knowledge-is-derived-from-marks-and-standards-and-its-form-is-spo:record-held",
+      "target": "held",
+      "command": "sh -c 'ls lib/emsenn/services/561-group/services/science-services-section/services/information-science-services-section/services/knowledge-services-section/content/text/documents/articles/notes/2026/10/10/2026-10-10-note-on-how-knowledge-is-derived-without-a-human-ruling.md >/dev/null 2>&1'",
+      "expected-exit": 0
+    }
+  ],
+  "tier": "routine",
+  "x-provenance": {
+    "recorded-by": "general-1 pass of debt-2026-10-09-leader-words-held-in-corpus (Red Cup Engineer Senior)",
+    "recorded-on": "2026-10-10",
+    "customer": "urn:leader:emsenn",
+    "utterances": [
+      "ni:///sha-256;XSobEL5HSrhcxwFxV0OdyJxU-n-5rkHEdumbJ6KuKi8",
+      "ni:///sha-256;zaJ5QMrt5d_NPbqS3MV2cuezdTtpsEKkwU2rD5NC0VI",
+      "ni:///sha-256;ChMYHJOZ0unlmYeDnNMOPY3e7eFe45TyJnYZJp9ky8U",
+      "ni:///sha-256;Q3LXZX4dXcfJNlXYyBVgeDkRpMxknAKLUuUhTQ5mU9o",
+      "ni:///sha-256;IUaTPXhtca1u-lznk-i1npJXe8TnRvY-gED6iNDy1Ag",
+      "ni:///sha-256;yvEGLPOp0g8N0xGNliLqizPdrDqRNncyzZV-gZ6XBjE",
+      "ni:///sha-256;imw1quhdgdozGtw6O6UhYx74Iq4zlmyIE6evA174LlM",
+      "ni:///sha-256;3g5gIYceoBjI7ZvD2ZnDjI_AbAUBfk5pISx_5m3pSXg",
+      "ni:///sha-256;eNYduApZS1llh0uvpixbbh6ox6blhbwx75xdlH6xN0E",
+      "ni:///sha-256;0ymX_GIPEHfyYfV9VKNlx24SIFxYAsbJf4lrtYTq49I",
+      "ni:///sha-256;oTIKDZD3gBbSRwUbKRNJGh1jEsljZnYTkq3ew0g-_Ao",
+      "ni:///sha-256;-hnPYmRT28Erd1soO6fIERKVWhGJjqaYhbEJ7j_A_WU",
+      "ni:///sha-256;bHdvl_H0jmTezRHyl6rcqn9rvfUBRzh9qfdM5Cl2vkk"
+    ],
+    "basis": "Leader utterances cited by address; the requirements are an EARS rendering of what those words state and carry no scope the words do not.",
+    "board-opening": {
+      "speech-act": "request",
+      "need": "Leader utterances of 2026-09-11 to 2026-09-25 (pass general-1): all data is SPO; knowledge graphs are meshy DAGs; formal concept analysis is built from marks outward; truth is derived by mathematics, standards conformance and research and not by human ruling; attention percolates a resource toward better care; grade annotations are derived, not handwritten; ordinals and fractions are preferred over integers; Thing and Cell are distinct types.",
+      "scope": [],
+      "requirements": [
+        {
+          "id": "R1",
+          "says": "The knowledge system shall represent all data as subject-predicate-object triples, including a file's key and value as the triple (file, key, value).",
+          "class": "functional",
+          "moscow": "must",
+          "rationale": "Leader, 2026-09-11 19:51 and 2026-09-25 17:50: \"all data in existence is SPO\"; \"(File, key, value) is (SPO) ... (token, claim) is (s, o) with an unsaturated function\"."
+        },
+        {
+          "id": "R2",
+          "says": "The knowledge system shall hold its graph as a meshy directed acyclic graph in which the key that supplies the function of a claim is itself a term.",
+          "class": "functional",
+          "moscow": "must",
+          "rationale": "Leader, 2026-09-25 17:50: \"key provides the function, but itself is another term so we end up with a meshy DAG\"."
+        },
+        {
+          "id": "R3",
+          "says": "The knowledge system shall build its formal concept analysis from bare marks outward, so that the more settled the corpus is, the more confidently truth is derived from it.",
+          "class": "functional",
+          "moscow": "must",
+          "rationale": "Leader, 2026-09-25 17:41: \"we want to do FCA from bare principles (marks) outward\"."
+        },
+        {
+          "id": "R4",
+          "says": "The knowledge system shall decide what is correct by mathematics, standards conformance and research, and shall take no single source, including a human ruling, as authoritative.",
+          "class": "functional",
+          "moscow": "must",
+          "rationale": "Leader, 2026-09-25 16:00 and 17:41: \"you MUST use mathematics, standards conformance, and actual research, to decide what is 'correct'\"; the ruling concept \"reinforces the idea of a supreme human in the loop, rather than a mesh of humans and agents seeking mathematical lawfulness\"."
+        },
+        {
+          "id": "R5",
+          "says": "The knowledge system shall derive the provenance, grade and relation annotations of a record from its graphing tools and shall not carry them as handwritten text or hand-maintained relative links.",
+          "class": "quality",
+          "moscow": "must",
+          "rationale": "Leader, 2026-09-25 17:41: \"derived via our graphing tools, not something hardcoded or handwritten ... the constant '[grade]' stuff is complete theater\"; 2026-09-21 01:39: relative links kept by hand are \"stupid\"."
+        },
+        {
+          "id": "R6",
+          "says": "The knowledge system shall record how often humans open a resource's page and shall use that attention to prompt its systems to raise the resource to the best state they can reach.",
+          "class": "functional",
+          "moscow": "should",
+          "rationale": "Leader, 2026-09-25 17:41: \"if humans keep opening a note's page and we're tracking those page views, that motivates our systems to go make sure that resource is as good as we can get it\"."
+        },
+        {
+          "id": "R7",
+          "says": "The knowledge system shall be built with OWL, SPARQL and the graphing tools available to the house, and not as a search over markdown files.",
+          "class": "quality",
+          "moscow": "must",
+          "rationale": "Leader, 2026-09-21 01:39: \"where is our owl, sparql, why do you act like having something that's basically grep over some markdown files is a knowledge system????\"; FORD is not assumed to be the right taxonomy."
+        },
+        {
+          "id": "R8",
+          "says": "The knowledge system shall generate Turtle and similar representations from the schema and shall carry no handwritten copy of data already held in a schema.",
+          "class": "quality",
+          "moscow": "must",
+          "rationale": "Leader, 2026-09-11 03:07: \"we have systems somewhere for like, generating ttl from schema, i want schema ... not more hand written copies of the same data\"."
+        },
+        {
+          "id": "R9",
+          "says": "The Daoist studies shall be richer, denser, more machine-readable and more useful to knowledge graphing and to forming an OWL, using the house's upstream code and not Daoist-only projection code.",
+          "class": "quality",
+          "moscow": "should",
+          "rationale": "Leader, 2026-09-11 02:33 and 2026-09-21 01:47."
+        },
+        {
+          "id": "R10",
+          "says": "The Group's science research shall be made more legible, visible and machine-readable by improving the tools already in use.",
+          "class": "functional",
+          "moscow": "should",
+          "rationale": "Leader, 2026-09-17 01:32."
+        },
+        {
+          "id": "R11",
+          "says": "The Group's numeric representation shall prefer ordinals and fractions over integers, each use of an integer being justified by its context.",
+          "class": "quality",
+          "moscow": "should",
+          "rationale": "Leader, 2026-09-25 23:13: \"Generally we want ordinals, fractions, over integers\"."
+        },
+        {
+          "id": "R12",
+          "says": "The Thing data structure shall be distinct from the Cell data structure, a Thing having qualities, relations, structures and conditions as its subobjects.",
+          "class": "constraint",
+          "moscow": "must",
+          "rationale": "Leader, 2026-09-12 01:35: \"Thing is a completely different data structure ... they're not the same object, cells and things\"; the list of subobjects is doubted."
+        },
+        {
+          "id": "R13",
+          "says": "The Group's software shall use one identifier system, introduced by breaking migration.",
+          "class": "constraint",
+          "moscow": "must",
+          "rationale": "Leader, 2026-09-12 01:35: \"breaking migrations to one ID system across all our software, and fix that fourth duplicate\"."
+        },
+        {
+          "id": "R14",
+          "says": "The Group's content normalization shall be measured against what the Group's theory supports for knowledge graphing, truth and evidence, and shall not take normalized frontmatter alone as progress.",
+          "class": "quality",
+          "moscow": "should",
+          "rationale": "Leader, 2026-09-24 21:48."
+        }
+      ]
+    },
+    "held-by": "lib/emsenn/services/561-group/services/science-services-section/services/information-science-services-section/services/knowledge-services-section/content/text/documents/articles/notes/2026/10/10/2026-10-10-note-on-how-knowledge-is-derived-without-a-human-ruling.md",
+    "sign-cell": {
+      "type": "emsenn/schema/requirement",
+      "mark": "ni:///sha-256;RMsjSr2mZeNpDgJv-icRSMSQ2vN8gNVBjrgjDwtkQWc",
+      "cell": "ni:///sha-256;6Aip1g6HOL3O4u756vI2Og8ZJQGdrsaFgL9KALg2Xqc"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "header": { "type": "esummary", "version": "0.3" },
+  "result": {
+    "uids": ["50000001", "50000002"],
+    "50000001": {
+      "uid": "50000001",
+      "title": "Post-Exertional Malaise In Myalgic Encephalomyelitis",
+      "authors": [{ "name": "A Researcher", "authtype": "Author" }],
+      "fulljournalname": "Journal of Fatigue Studies",
+      "pubdate": "2026 Aug 15",
+      "articleids": [],
+      "pubtype": ["Journal Article"]
+    },
+    "50000002": {
+      "uid": "50000002",
+      "title": "Dysautonomia Following Acute Infection: A Cohort Study",
+      "authors": [{ "name": "B Researcher", "authtype": "Author" }],
+      "fulljournalname": "Journal of Autonomic Medicine",
+      "pubdate": "2026 Aug 20",
+      "articleids": [{ "idtype": "doi", "idtypen": 3, "value": "10.1000/watchtest.002" }],
+      "pubtype": ["Journal Article"]
+    }
+  }
+}

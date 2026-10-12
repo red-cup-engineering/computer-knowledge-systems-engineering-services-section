@@ -1,0 +1,41 @@
+{
+  "name": "@red-cup-engineering/carrier-kind-engineering-services-section",
+  "version": "0.1.0",
+  "description": "Admits a content carrier's frontmatter by the schema its artifact-role directory's kind names: the knowledge-organization science section's carrier-kind schemas, projected here and compiled with the term schema and the relation vocabulary.",
+  "type": "module",
+  "exports": {
+    ".": "./src/carrier-kinds.mjs",
+    "./carrier-path": "./src/carrier-path.mjs",
+    "./carrier-kind-schemas": "./src/carrier-kind-schemas.mjs",
+    "./note-repair": "./src/note-repair.mjs",
+    "./carriers/note.schema.json": "./schemas/carriers/note.schema.json",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "project-carrier-kind-schemas": "scripts/project-carrier-kind-schemas.mjs"
+  },
+  "files": [
+    "data/records/",
+    "src/",
+    "scripts/"
+  ],
+  "scripts": {
+    "check": "node --check src/*.mjs && node --check scripts/*.mjs && node --check test/*.test.mjs",
+    "test": "node --test test/*.test.mjs",
+    "project-science-schemas": "node scripts/project-carrier-kind-schemas.mjs ../../../../../../../../../science-services-section/services/information-science-services-section/services/knowledge-services-section/services/knowledge-organization-services-section/schemas/carriers schemas/carriers",
+    "generate-ontology": "project-json-schema-as-ontology ../../../../../../../../../science-services-section/services/information-science-services-section/services/knowledge-services-section/services/knowledge-organization-services-section/schemas/carriers https://561.group/ns/schema/ --out-dir ../../../../../../../../../science-services-section/services/information-science-services-section/services/knowledge-services-section/services/knowledge-organization-services-section/data/ontology/carriers --reference ../../../../../../../../../science-services-section/services/information-science-services-section/services/communication-science-services-section/services/glossary-science-services-section/services/term-science-services-section/schemas/glossary/terms/term.schema.json"
+  },
+  "dependencies": {
+    "@red-cup-engineering/computer-file-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/json-schema-services-section": "workspace:*",
+    "@red-cup-engineering/markdown-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/term-engineering-services-section": "workspace:*"
+  },
+  "devDependencies": {
+    "@red-cup-engineering/json-schema-to-owl-shacl-service": "workspace:*"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "UNLICENSED"
+}

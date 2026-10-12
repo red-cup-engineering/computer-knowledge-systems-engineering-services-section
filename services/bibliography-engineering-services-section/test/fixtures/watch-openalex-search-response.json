@@ -1,0 +1,29 @@
+{
+  "meta": { "count": 2, "db_response_time_ms": 10, "page": 1, "per_page": 200 },
+  "results": [
+    {
+      "id": "https://openalex.org/W9000000001",
+      "doi": "https://doi.org/10.1000/watchtest.001",
+      "title": "Post-viral fatigue after SARS-CoV-2 infection",
+      "display_name": "Post-viral fatigue after SARS-CoV-2 infection",
+      "publication_year": 2026,
+      "publication_date": "2026-08-10",
+      "type": "article",
+      "primary_location": { "landing_page_url": "https://doi.org/10.1000/watchtest.001", "source": { "display_name": "Journal of Post-Viral Studies" } },
+      "biblio": {},
+      "authorships": [{ "author": { "display_name": "C Researcher" } }]
+    },
+    {
+      "id": "https://openalex.org/W9000000002",
+      "doi": "https://doi.org/10.1000/watchtest.003",
+      "title": "Long COVID Symptom Trajectories: A Prospective Cohort",
+      "display_name": "Long COVID Symptom Trajectories: A Prospective Cohort",
+      "publication_year": 2026,
+      "publication_date": "2026-08-25",
+      "type": "article",
+      "primary_location": { "landing_page_url": "https://doi.org/10.1000/watchtest.003", "source": { "display_name": "Journal of Long COVID Research" } },
+      "biblio": {},
+      "authorships": [{ "author": { "display_name": "D Researcher" } }]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "mixedScientificNotebook": { "input": "research/model.ipynb", "decision": "route-out-incompatible-unit", "status": "invalid" },
+  "mixedScientificBibliography": { "input": "research/sources.bib", "decision": "route-out-incompatible-unit", "status": "invalid" },
+  "flatGlossaryRoot": { "input": "content/text/glossary/terms", "decision": "term-unit-container", "status": "proven" },
+  "packageSymlink": { "decision": "resolve-package-source", "status": "supported" },
+  "koiosPackage": { "input": "package.json", "decision": "inspect-unit-for-transformer", "status": "supported" },
+  "nestedService": { "input": "services/hydrology-sciences-services-section", "decision": "inspect-unit-for-transformer", "status": "supported" },
+  "archive": { "input": "unsafe-looking.tgz", "decision": "inspect-archive-as-contained-units", "status": "supported" },
+  "malformedTerm": { "input": "content/text/glossary/terms/broken.md", "decision": "route-out-incompatible-unit", "status": "invalid" },
+  "duplicateTerm": { "input": "content/text/glossary/terms/second.md", "decision": "identity-conflict", "status": "invalid" }
+}

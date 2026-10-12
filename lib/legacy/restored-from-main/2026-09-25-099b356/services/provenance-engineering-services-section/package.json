@@ -1,0 +1,37 @@
+{
+  "name": "@red-cup-engineering/provenance-engineering-services-section",
+  "version": "0.1.1",
+  "type": "module",
+  "description": "Grades every science carrier by who its claims come from — owner-authored, owner-attributed-and-located, owner-attributed-unlocated, agent-cited, agent-uncited — so an agent can tell owner-stated theory from agent extrapolation without reading prose.",
+  "exports": {
+    ".": "./src/provenance-census.mjs",
+    "./census": "./src/provenance-census.mjs"
+  },
+  "files": [
+    "src/",
+    "scripts/"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "check": "node --check src/*.mjs && node --check scripts/*.mjs && node --check test/*.test.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@red-cup-engineering/eavt": "0.10.4",
+    "@red-cup-engineering/file-services": "0.4.0",
+    "@red-cup-engineering/filepath-services-section": "0.1.0",
+    "@red-cup-engineering/markdown-engineering-services-section": "0.5.0",
+    "@red-cup-engineering/javascript-file-services-section": "0.1.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "provenance",
+    "science",
+    "carrier",
+    "census",
+    "knowledge-system"
+  ],
+  "license": "UNLICENSED"
+}

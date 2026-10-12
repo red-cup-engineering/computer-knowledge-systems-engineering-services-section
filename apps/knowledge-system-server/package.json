@@ -1,0 +1,80 @@
+{
+  "name": "@red-cup-engineering/knowledge-system-server",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "knowledge-system-server (CAIRN, Content Archive Inspection, Revision, and Navigation): the knowledge-system server -- a content archive read, navigated, and revised, what its documents say read as SignChain tellings, over HTTP and MCP.",
+  "engines": {
+    "node": ">=24"
+  },
+  "bin": {
+    "cairn": "./scripts/cairn.mjs"
+  },
+  "exports": {
+    "./catalog": "./src/catalog.mjs",
+    "./cell": "./src/cell.mjs",
+    "./content-reader": "./src/content-reader.mjs",
+    "./markdown-vault": "./src/markdown-vault.mjs",
+    "./archive": "./src/archive.mjs",
+    "./server": "./src/server.mjs",
+    "./mcp-tools": "./src/mcp-tools.mjs",
+    "./package.json": "./package.json",
+    "./vocabulary": "./src/vocabulary.mjs",
+    "./workbench/markdown": "./src/workbench/markdown.mjs",
+    "./workbench/markdown-edit": "./src/workbench/markdown-edit.mjs",
+    "./workbench/specification": "./src/workbench/specification.mjs",
+    "./workbench/arc42": "./src/workbench/arc42.mjs",
+    "./directory-readout/boundary/schema": "./src/directory-readout/boundary/schema.mjs",
+    "./directory-readout": "./src/directory-readout/index.mjs",
+    "./search/concept-resolution": "./src/search/concept-resolution.mjs",
+    "./search/path-corpus": "./src/search/path-corpus.mjs",
+    "./search/schema": "./src/search/schema.mjs",
+    "./search/service": "./src/search/service.mjs",
+    "./search/standing": "./src/search/standing.mjs",
+    "./eavt-cell": "./src/eavt-cell.mjs",
+    "./search/revision-index": "./src/search/revision-index.mjs",
+    "./vault-catalog": "./src/vault-catalog.mjs"
+  },
+  "files": [
+    "content",
+    "scripts",
+    "src",
+    "README.md",
+    "data",
+    "!scripts/historical-revision-index-receiving"
+  ],
+  "scripts": {
+    "check": "node --check src/*.mjs scripts/*.mjs scripts/adapters/*.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@red-cup-engineering/communicating": "workspace:*",
+    "@red-cup-engineering/computer-code-development-engine": "workspace:*",
+    "@red-cup-engineering/semiotic-eavt-services-section": "workspace:*",
+    "@red-cup-engineering/computer-content-address-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/computer-serialized-content-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/computer-filepath-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/computer-networking-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/computer-system-engine": "workspace:*",
+    "@red-cup-engineering/computer-text-content-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/cryptographic-computer-data-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/csl-json-services-section": "workspace:*",
+    "@red-cup-engineering/eavt-services-section": "workspace:*",
+    "@red-cup-engineering/feltos": "workspace:*",
+    "@red-cup-engineering/git-services-section": "workspace:*",
+    "@red-cup-engineering/http-services-section": "workspace:*",
+    "@red-cup-engineering/javascript-node-services-section": "workspace:*",
+    "@red-cup-engineering/json-schema-services-section": "workspace:*",
+    "@red-cup-engineering/json-services-section": "workspace:*",
+    "@red-cup-engineering/markdown-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/mcp-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/metrologic": "workspace:*",
+    "@red-cup-engineering/computer-triplet-serialized-content-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/relating": "workspace:*",
+    "@red-cup-engineering/specification-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/term-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/uri-services-section": "workspace:*",
+    "@red-cup-engineering/signgraph": "workspace:*",
+    "@red-cup-engineering/signchain": "workspace:*",
+    "@red-cup-engineering/computer-data-engineering-services-section": "workspace:*"
+  }
+}

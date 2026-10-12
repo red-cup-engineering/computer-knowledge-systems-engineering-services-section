@@ -1,0 +1,44 @@
+{
+  "name": "@red-cup-engineering/question-engineering-services-section",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Admits research questions, records their provenance and status as append-only EAVT witnesses, replays current state, and projects science-owned Markdown carriers.",
+  "exports": {
+    "./question": "./src/question.mjs",
+    "./question-journal": "./src/question-journal.mjs",
+    "./question-document": "./src/question-document.mjs",
+    "./scripts/admit-question.mjs": "./scripts/admit-question.mjs",
+    "./scripts/admit-set-of-questions.mjs": "./scripts/admit-set-of-questions.mjs",
+    "./scripts/append-question.mjs": "./scripts/append-question.mjs",
+    "./scripts/read-question.mjs": "./scripts/read-question.mjs",
+    "./scripts/fabricate-question.mjs": "./scripts/fabricate-question.mjs"
+  },
+  "bin": {
+    "question": "./apps/question-cli.mjs"
+  },
+  "files": [
+    "src/",
+    "scripts/",
+    "apps/",
+    "data/records/schema/",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "check": "node --check src/*.mjs && node --check scripts/*.mjs && node --check apps/*.mjs && node --check data/records/schema/question/*.mjs && node --check test/*.test.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@red-cup-engineering/computer-code-development-engine": "0.3.0",
+    "@red-cup-engineering/eavt": "0.10.4",
+    "@red-cup-engineering/markdown-engineering-services-section": "0.5.0"
+  },
+  "keywords": [
+    "question-engineering",
+    "research-question",
+    "eavt",
+    "knowledge-system"
+  ]
+}

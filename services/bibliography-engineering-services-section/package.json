@@ -1,0 +1,66 @@
+{
+  "name": "@red-cup-engineering/bibliography-engineering-services-section",
+  "version": "0.5.0",
+  "type": "module",
+  "description": "Engineering policy and operations for depth-2 bibliography Markdown carriers and the depth-1 references: maps they reconcile against across a science section's carrier corpus, plus bibliographic-record retrieval (OpenAlex, PubMed, CrossRef) and systematic-review screening of the candidates it surfaces.",
+  "exports": {
+    ".": "./src/bibliography-carrier.mjs",
+    "./carrier": "./src/bibliography-carrier.mjs",
+    "./operations": "./src/bibliography-operations.mjs",
+    "./collect": "./src/bibliography-collect.mjs",
+    "./reconcile": "./src/bibliography-reconcile.mjs",
+    "./bibtex": "./src/bibliography-bibtex.mjs",
+    "./citation-text": "./src/citation-text.mjs",
+    "./book-record": "./src/book-record.mjs",
+    "./reference-check": "./src/reference-check.mjs",
+    "./scripts/resolve-doi.mjs": "./scripts/resolve-doi.mjs",
+    "./scripts/search-openalex-works.mjs": "./scripts/search-openalex-works.mjs",
+    "./scripts/fetch-openalex-work.mjs": "./scripts/fetch-openalex-work.mjs",
+    "./scripts/search-pubmed.mjs": "./scripts/search-pubmed.mjs",
+    "./scripts/fetch-pubmed-summaries.mjs": "./scripts/fetch-pubmed-summaries.mjs",
+    "./register": "./src/register.mjs",
+    "./source-record": "./src/source-record.mjs"
+  },
+  "bin": {
+    "bibliography": "./apps/bibliography-cli.mjs"
+  },
+  "files": [
+    "apps/",
+    "content/",
+    "schemas/",
+    "src/",
+    "scripts/"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "check": "node --check src/*.mjs && node --check scripts/*.mjs && node --check apps/*.mjs && node --check schemas/bibliography/*.mjs && node --check test/*.test.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@red-cup-engineering/computer-code-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/computer-data-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/csl-json-services-section": "workspace:*",
+    "@red-cup-engineering/computer-file-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/html-structural-projection-service": "workspace:*",
+    "@red-cup-engineering/javascript-node-services-section": "workspace:*",
+    "@red-cup-engineering/json-services-section": "workspace:*",
+    "@red-cup-engineering/markdown-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/witness-journal-document-service": "workspace:*",
+    "@red-cup-engineering/http-services-section": "workspace:*",
+    "@red-cup-engineering/json-schema-services-section": "workspace:*"
+  },
+  "keywords": [
+    "bibliography",
+    "citation",
+    "bibtex",
+    "csl-json",
+    "openalex",
+    "pubmed",
+    "crossref",
+    "prisma",
+    "knowledge-system"
+  ],
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,40 @@
+{
+  "name": "@red-cup-engineering/scholarly-literature-services-section",
+  "version": "0.3.0",
+  "type": "module",
+  "description": "Scholarly-literature retrieval and systematic-review screening: normalizes OpenAlex, PubMed, and CrossRef work records to CSL-JSON, then dedupes/screens candidates with a PRISMA-style flow tally.",
+  "license": "UNLICENSED",
+  "exports": {
+    ".": "./src/scholarly-literature.mjs",
+    "./screening": "./src/screening.mjs",
+    "./watch": "./src/watch.mjs",
+    "./scripts/search-openalex-works.mjs": "./scripts/search-openalex-works.mjs",
+    "./scripts/fetch-openalex-work.mjs": "./scripts/fetch-openalex-work.mjs",
+    "./scripts/search-pubmed.mjs": "./scripts/search-pubmed.mjs",
+    "./scripts/fetch-pubmed-summaries.mjs": "./scripts/fetch-pubmed-summaries.mjs",
+    "./scripts/resolve-doi.mjs": "./scripts/resolve-doi.mjs",
+    "./scripts/screen-candidates.mjs": "./scripts/screen-candidates.mjs",
+    "./scripts/export-bibliography.mjs": "./scripts/export-bibliography.mjs",
+    "./scripts/watch-literature.mjs": "./scripts/watch-literature.mjs"
+  },
+  "bin": {
+    "scholarly-literature-cli": "apps/scholarly-literature-cli.mjs"
+  },
+  "files": [
+    "src/",
+    "scripts/",
+    "apps/",
+    "content/"
+  ],
+  "scripts": {
+    "check": "node --check src/scholarly-literature.mjs && node --check src/screening.mjs && node --check src/watch.mjs && node --check scripts/search-openalex-works.mjs && node --check scripts/fetch-openalex-work.mjs && node --check scripts/search-pubmed.mjs && node --check scripts/fetch-pubmed-summaries.mjs && node --check scripts/resolve-doi.mjs && node --check scripts/screen-candidates.mjs && node --check scripts/export-bibliography.mjs && node --check scripts/watch-literature.mjs && node --check apps/scholarly-literature-cli.mjs && node --check test/scholarly-literature.test.mjs && node --check test/screening.test.mjs && node --check test/watch.test.mjs",
+    "test": "node --test test/*.test.mjs",
+    "verify": "npm run check && npm test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@red-cup-engineering/json-codec-service": "0.1.13"
+  }
+}

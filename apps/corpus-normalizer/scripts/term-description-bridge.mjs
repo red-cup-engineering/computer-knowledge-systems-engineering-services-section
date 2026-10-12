@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+import { readFile } from "node:fs/promises";
+import { seatTermDescriptionProposals, verifyTermDescriptionSeating, writeTermDescriptionRequests } from "../src/term-description-bridge.mjs";
+
+const usage = "Usage: term-description-bridge prepare STAGING --output REQUESTS.ndjson [--max-context-chars N]\n       term-description-bridge seat STAGING PROPOSALS --output EMPTY_OVERLAY\n       term-description-bridge verify RECEIPT.json --overlay OVERLAY";
+function parse(args) { const [command, ...rest] = args; if (!command) throw new Error(usage); if (command === "prepare") { const [staging, flag, output, ...tail] = rest; if (!staging || flag !== "--output" || !output) throw new Error(usage); if (tail.length && (tail.length !== 2 || tail[0] !== "--max-context-chars" || !/^\d+$/u.test(tail[1]))) throw new Error(usage); return { command, staging, output, maxContextChars: tail.length ? Number(tail[1]) : undefined }; } if (command === "seat") { const [staging, proposals, flag, output, ...tail] = rest; if (!staging || !proposals || flag !== "--output" || !output || tail.length) throw new Error(usage); return { command, staging, proposals, output }; } if (command === "verify") { const [receipt, flag, overlay, ...tail] = rest; if (!receipt || flag !== "--overlay" || !overlay || tail.length) throw new Error(usage); return { command, receipt, overlay }; } throw new Error(usage); }
+const args = parse(process.argv.slice(2));
+const result = args.command === "prepare" ? await writeTermDescriptionRequests(args.staging, args.output, { maxContextChars: args.maxContextChars }) : args.command === "seat" ? await seatTermDescriptionProposals(args.staging, args.proposals, args.output) : await verifyTermDescriptionSeating(JSON.parse(await readFile(args.receipt, "utf8")), args.overlay);
+process.stdout.write(`${JSON.stringify(result)}\n`);

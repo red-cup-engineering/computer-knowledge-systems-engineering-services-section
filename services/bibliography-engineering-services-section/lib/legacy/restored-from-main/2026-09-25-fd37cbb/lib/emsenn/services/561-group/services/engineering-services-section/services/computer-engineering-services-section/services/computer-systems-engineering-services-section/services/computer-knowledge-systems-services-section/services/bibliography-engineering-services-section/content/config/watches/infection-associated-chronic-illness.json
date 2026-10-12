@@ -1,0 +1,16 @@
+{
+  "id": "infection-associated-chronic-illness",
+  "sinceDays": 30,
+  "queries": [
+    { "source": "pubmed", "query": "(\"long covid\"[tiab] OR \"post-acute sequelae of SARS-CoV-2\"[tiab] OR \"post-acute sequelae of covid-19\"[tiab] OR PASC[tiab])" },
+    { "source": "pubmed", "query": "(\"myalgic encephalomyelitis\"[tiab] OR \"chronic fatigue syndrome\"[tiab] OR \"ME/CFS\"[tiab])" },
+    { "source": "pubmed", "query": "\"post-exertional malaise\"[tiab]" },
+    { "source": "pubmed", "query": "(\"post-infectious fatigue\"[tiab] OR \"post-viral fatigue\"[tiab] OR \"post-infective fatigue\"[tiab])" },
+    { "source": "pubmed", "query": "(dysautonomia[tiab] AND (infection[tiab] OR \"post-infectious\"[tiab] OR postinfectious[tiab] OR viral[tiab]))" },
+    { "source": "openalex", "query": "long covid post-acute sequelae SARS-CoV-2" },
+    { "source": "openalex", "query": "myalgic encephalomyelitis chronic fatigue syndrome" },
+    { "source": "openalex", "query": "post-exertional malaise" },
+    { "source": "openalex", "query": "post-infectious fatigue post-viral fatigue" },
+    { "source": "openalex", "query": "dysautonomia after infection postinfectious autonomic dysfunction" }
+  ]
+}

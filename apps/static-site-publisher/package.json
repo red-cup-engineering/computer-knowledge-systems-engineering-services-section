@@ -1,0 +1,52 @@
+{
+  "name": "@red-cup-engineering/static-site-publisher",
+  "version": "0.1.15",
+  "description": "static-site-publisher (VICTOR): the website framework for building, composing, serving, and releasing Living Web applications over the web-page tiling engine and upstream web services.",
+  "keywords": [
+    "website-framework",
+    "website",
+    "living-web",
+    "static-site-generator",
+    "web-application",
+    "tufte"
+  ],
+  "type": "module",
+  "bin": {
+    "static-site-publisher": "./scripts/static-site-publisher.mjs"
+  },
+  "exports": {
+    "./website": "./src/website.mjs",
+    "./config": "./src/config.mjs",
+    "./build": "./src/build.mjs",
+    "./neocities": "./src/neocities.mjs",
+    "./workspace-graph": "./src/workspace-graph.mjs"
+  },
+  "dependencies": {
+    "@red-cup-engineering/activitypub-services-section": "workspace:*",
+    "@red-cup-engineering/cbor-services-section": "workspace:*",
+    "@red-cup-engineering/computer-serialized-content-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/computer-systems-publishing-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/computer-web-server": "workspace:*",
+    "@red-cup-engineering/cryptographic-computer-data-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/http-services-section": "workspace:*",
+    "@red-cup-engineering/knowledge-system-server": "workspace:*",
+    "@red-cup-engineering/markdown-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/static-site-conformance-service": "workspace:*",
+    "@red-cup-engineering/web-page-tiling-engine": "workspace:*",
+    "@red-cup-engineering/web-release-candidate-service": "workspace:*",
+    "@red-cup-engineering/web-theming-service": "workspace:*",
+    "@red-cup-engineering/computer-content-address-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/workspace-content-graph-service": "workspace:*"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.mjs\""
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@red-cup-engineering/indieweb-server": "workspace:*",
+    "@red-cup-engineering/activitypub-server": "workspace:*"
+  }
+}

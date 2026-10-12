@@ -1,0 +1,71 @@
+{
+  "name": "@emsenn/organizing-a-knowledge-vault",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "type": "module",
+  "description": "Organizing a knowledge vault: the @emsenn/organizing downstream specialization that admits mounted content/ filepath trees as corpus memorystores, glues corpus regions as organizations, and projects knowing memory readings into knowledge-vault corpus, topic, health, and mutation carriers.",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "clean": "node -e \"const fs=require('node:fs'); for (const p of ['dist','.tmp']) fs.rmSync(p,{recursive:true,force:true});\"",
+    "check": "tsc --noEmit && tsc -p tsconfig.scripts.json --noEmit",
+    "build": "node -e \"require('node:fs').rmSync('dist/src',{recursive:true,force:true});\" && tsc -p tsconfig.build.json && tsc -p tsconfig.scripts.json && node copy-dist-assets.mjs && node -e \"const fs=require('node:fs'); for (const f of fs.readdirSync('dist/scripts')) if (f.endsWith('.mjs')) fs.chmodSync('dist/scripts/'+f,0o755);\"",
+    "test": "npm run build && node --test \"test/*.test.mjs\"",
+    "verify": "npm run check && npm run build",
+    "rebuild": "npm run clean && npm run build"
+  },
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "bin": {
+    "organize-knowledge-vault": "./dist/scripts/cli.mjs",
+    "organize-knowledge-vault-serve": "./dist/scripts/serve.mjs"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
+  "dependencies": {
+    "@emsenn/content": "workspace:*",
+    "@emsenn/organizing": "workspace:*",
+    "@emsenn/knowing": "workspace:*",
+    "@emsenn/relating": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./corpus": {
+      "types": "./dist/corpus/index.d.mts",
+      "import": "./dist/corpus/index.mjs"
+    },
+    "./mutating": {
+      "types": "./dist/mutating/index.d.mts",
+      "import": "./dist/mutating/index.mjs"
+    },
+    "./addressing": {
+      "types": "./dist/addressing/index.d.mts",
+      "import": "./dist/addressing/index.mjs"
+    },
+    "./actions": {
+      "types": "./dist/actions.d.mts",
+      "import": "./dist/actions.mjs"
+    },
+    "./agents": {
+      "types": "./dist/agents/index.d.mts",
+      "import": "./dist/agents/index.mjs"
+    },
+    "./holography": {
+      "types": "./dist/holography/index.d.mts",
+      "import": "./dist/holography/index.mjs"
+    },
+    "./package.json": "./package.json"
+  }
+}

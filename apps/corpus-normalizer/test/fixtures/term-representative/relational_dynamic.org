@@ -1,0 +1,7 @@
+#+title: relational dynamic
+#+author: emsenn
+#+date: [2025-09-26 Fri 12:40]
+#+index: relational dynamics!relational dynamic
+#+name: relational-dynamic-definition
+
+A relational dynamic is a dynamic within a relational field.

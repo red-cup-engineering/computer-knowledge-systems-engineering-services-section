@@ -1,0 +1,23 @@
+{
+  "name": "@red-cup-engineering/research-product-admission-service",
+  "version": "0.1.5",
+  "type": "module",
+  "exports": {
+    "./research": "./src/research.mjs"
+  },
+  "files": [
+    "src/",
+    "content/"
+  ],
+  "description": "Admits source-grounded research products from an explicitly supplied evidence corpus.",
+  "scripts": {
+    "check": "node --check src/research.mjs && node --check test/research.test.mjs",
+    "test": "node --test test/research.test.mjs"
+  },
+  "dependencies": {
+    "@red-cup-engineering/computer-data-engine": "0.10.0",
+    "@red-cup-engineering/eavt": "0.10.4",
+    "@red-cup-engineering/relation-model-notation": "0.3.0"
+  },
+  "license": "UNLICENSED"
+}

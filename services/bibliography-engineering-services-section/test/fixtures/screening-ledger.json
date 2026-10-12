@@ -1,0 +1,45 @@
+{
+  "searches": [
+    { "id": "openalex::2026-08-30::deep learning", "source": "openalex", "query": "deep learning", "date": "2026-08-30", "resultCount": 2 },
+    { "id": "crossref::2026-08-30::10.1038/nature14539", "source": "crossref", "query": "10.1038/nature14539", "date": "2026-08-30", "resultCount": 1 },
+    { "id": "pubmed::2026-08-31::attention", "source": "pubmed", "query": "attention is all you need", "date": "2026-08-31", "resultCount": 3 }
+  ],
+  "candidates": [
+    {
+      "item": { "id": "W1", "type": "article-journal", "title": "Deep learning", "DOI": "10.1038/NATURE14539" },
+      "source": "openalex",
+      "searchId": "openalex::2026-08-30::deep learning",
+      "dedupeKey": "doi:10.1038/nature14539"
+    },
+    {
+      "item": { "id": "10.1038/nature14539", "type": "article-journal", "title": "Deep learning", "DOI": "10.1038/nature14539" },
+      "source": "crossref",
+      "searchId": "crossref::2026-08-30::10.1038/nature14539",
+      "dedupeKey": "doi:10.1038/nature14539"
+    },
+    {
+      "item": { "id": "P1", "type": "article-journal", "title": "Attention Is All You Need" },
+      "source": "pubmed",
+      "searchId": "pubmed::2026-08-31::attention",
+      "dedupeKey": "title:attention is all you need"
+    },
+    {
+      "item": { "id": "W2", "type": "paper-conference", "title": "  Attention   IS all You Need  " },
+      "source": "openalex",
+      "searchId": "openalex::2026-08-30::deep learning",
+      "dedupeKey": "title:attention is all you need"
+    },
+    {
+      "item": { "id": "P2", "type": "article-journal", "title": "Attention Is All You Need: A Survey" },
+      "source": "pubmed",
+      "searchId": "pubmed::2026-08-31::attention",
+      "dedupeKey": "title:attention is all you need a survey"
+    },
+    {
+      "item": { "id": "W3", "type": "article-journal", "title": "Some Other Paper", "DOI": "10.1000/xyz123" },
+      "source": "openalex",
+      "searchId": "openalex::2026-08-30::deep learning",
+      "dedupeKey": "doi:10.1000/xyz123"
+    }
+  ]
+}

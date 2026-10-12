@@ -1,0 +1,22 @@
+{
+  "name": "@emsenn/research.emsenn.net",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Thin research.emsenn.net box: mounts ICK ⊕ the knowledge-vault face over ./content.",
+  "scripts": {
+    "serve": "node src/serve.mts",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@emsenn/content": "0.0.1",
+    "@emsenn/http-server": "0.0.0",
+    "@emsenn/organizing": "0.0.0",
+    "@emsenn/organizing-a-knowledge-vault": "0.0.0",
+    "@emsenn/producing-content": "0.0.1",
+    "@emsenn/relating": "0.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.1",
+    "typescript": "5.9.3"
+  }
+}

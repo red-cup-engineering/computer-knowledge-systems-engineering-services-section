@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {
+      "id": "text-1",
+      "type": "text",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 90,
+      "color": "4",
+      "text": "total-order\n\nA hand-authored note about the concept."
+    },
+    {
+      "id": "file-1",
+      "type": "file",
+      "x": 320,
+      "y": 0,
+      "width": 260,
+      "height": 90,
+      "file": "order.md",
+      "subpath": "#definition"
+    },
+    {
+      "id": "link-1",
+      "type": "link",
+      "x": 0,
+      "y": 200,
+      "width": 260,
+      "height": 60,
+      "color": "#3f7fbf",
+      "url": "https://jsoncanvas.org/spec/1.0/"
+    },
+    {
+      "id": "group-1",
+      "type": "group",
+      "x": -40,
+      "y": -40,
+      "width": 660,
+      "height": 180,
+      "label": "order theory",
+      "backgroundStyle": "ratio"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "fromNode": "text-1",
+      "toNode": "file-1",
+      "fromSide": "right",
+      "toSide": "left",
+      "fromEnd": "none",
+      "toEnd": "arrow",
+      "color": "5",
+      "label": "specialization"
+    },
+    {
+      "id": "edge-2",
+      "fromNode": "file-1",
+      "toNode": "link-1",
+      "label": "see-also"
+    }
+  ]
+}

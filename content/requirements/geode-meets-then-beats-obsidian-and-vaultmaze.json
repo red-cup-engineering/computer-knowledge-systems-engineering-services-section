@@ -1,0 +1,58 @@
+{
+  "id": "geode-meets-then-beats-obsidian-and-vaultmaze",
+  "name": "GEODE meets then beats Obsidian, and VaultMaze grows from it",
+  "kind": "requirement",
+  "raised-by": "emsenn",
+  "asks": "In this session our goal is to condense, carefully, the knowledge that has become scattered across too many notes, too few terms, too poorly hyperlinked. In order to facilitate this we're going to work to improve our knowledge system software so you can do this work with durable tooling: rewriting notes, links, etc.\n\nOur goal is to, with GEODE, meet then beat Obsidian's capabilities, provided through a web browser UI, that also provides API for you and other agents.\n\n\nAnd then VaultMaze should grow to be the FeltOS+GEODE that lets agents play the knowledge like Encarta MindMaze(improved by advances in pedagogy and learning and such)\n\nThe goal is to let us do more to settle knowledge from the fuzzy opaque notes it is now to more and more machine-readable, determined, clean information.\n\nIronically, the opaque information is largely about how to do that, in various ways.\n\nWe have additional knowledge on cold-red-gate, our VPS, and in our github repos, but there is also lots of local knowledge: tremendous amounts of notes that cover similar topics but have no way of finding each other, we have no good graphing, semantic search, or anything, yet, available to agents.\n\nThere are many notes that say the same thing in slightly different ways as we learned the concepts better: understanding how we have registers of nomenclature, and how that relates to FCA, is important.\n\nYou won't understand until you actually look, but this repository has some world-class research in semiotics and FCA and logic and mathematics, that is all of critical importance to helping us build strong software for doing what we want.",
+  "met-when": [
+    {
+      "cell": "geode-meets-then-beats-obsidian-and-vaultmaze:conditions-stated",
+      "target": "held"
+    }
+  ],
+  "x-provenance": {
+    "recorded-by": "emsenn/services/561-group/services/operations-services-section/services/requirement-management-operation-services-section#requirements-management-team@claude-session-01C1PPvutxergQgomSSaWG9Z",
+    "recorded-on": "2026-10-10",
+    "customer": "urn:leader:emsenn",
+    "utterances": [
+      "ni:///sha-256;JjnbWN-ES8e0bxwEwDq0GApqIfMTV5F0tXqR71SKGTY"
+    ],
+    "sources": [
+      {
+        "words": "In this session our goal is to condense, carefully, the knowledge that has become scattered across too many notes, too few terms, too poorly hyperlinked. In order to facilitate this we're going to work to improve our knowledge system software so you can do this work with durable tooling: rewriting notes, links, etc.\n\nOur goal is to, with GEODE, meet then beat Obsidian's capabilities, provided through a web browser UI, that also provides API for you and other agents.\n\n\nAnd then VaultMaze should grow to be the FeltOS+GEODE that lets agents play the knowledge like Encarta MindMaze(improved by advances in pedagogy and learning and such)\n\nThe goal is to let us do more to settle knowledge from the fuzzy opaque notes it is now to more and more machine-readable, determined, clean information.\n\nIronically, the opaque information is largely about how to do that, in various ways.\n\nWe have additional knowledge on cold-red-gate, our VPS, and in our github repos, but there is also lots of local knowledge: tremendous amounts of notes that cover similar topics but have no way of finding each other, we have no good graphing, semantic search, or anything, yet, available to agents.\n\nThere are many notes that say the same thing in slightly different ways as we learned the concepts better: understanding how we have registers of nomenclature, and how that relates to FCA, is important.\n\nYou won't understand until you actually look, but this repository has some world-class research in semiotics and FCA and logic and mathematics, that is all of critical importance to helping us build strong software for doing what we want.",
+        "session": "34526c8a-06d9-4bd3-8396-8797c4e1fc4f",
+        "at": "2026-09-25T16:36:23.890Z",
+        "locator": "lib/emsenn/services/561-group/services/public-services-section/services/personal-services-section/services/emsenn-services-section/data/records/leader-utterances/2026-08-26--2026-10-10.jsonl#ni:///sha-256;JjnbWN-ES8e0bxwEwDq0GApqIfMTV5F0tXqR71SKGTY"
+      }
+    ],
+    "pending-conditions": "No met-when is stated yet; this condition stands unsettled (read unknown) until a check that exercises the demand replaces it.",
+    "near": [
+      "web-family-by-lineage-and-a-stable-local-port"
+    ],
+    "captured-by": "the capture line (session_017x7ZhpkZQAx5VZSv2Hz5Q9), coverage final batch, 2026-10-10: NOT HELD or HELD-THINLY rows no requirement carried",
+    "sign-cell": {
+      "type": "emsenn/schema/requirement",
+      "mark": "ni:///sha-256;FNjz8sZkiE6BaSYUOae8GqjfKNcJvwArFDctshCO3Kc"
+    },
+    "attestation": {
+      "claim": {
+        "kind": "computer-content.signed-content-claim",
+        "version": 1,
+        "purpose": "561-group.july-record-attestation.v1",
+        "issuer": "emsenn/services/561-group/services/operations-services-section/services/requirement-management-operation-services-section#requirements-management-team@claude-session-01C1PPvutxergQgomSSaWG9Z",
+        "issuedAt": "2026-10-10T06:59:54.933Z",
+        "content": {
+          "uri": "ni:///sha-256;649idOdkilYcGpVYzDcj9r85UDLUIkbAz2bGFoRCD9M",
+          "bytes": 57,
+          "mediaType": "text/plain"
+        },
+        "signature": {
+          "algorithm": "Ed25519",
+          "keyId": "ni:///sha-256;ckBB1fSoByEfYxnM1aPBrZFg7yfyTfhPEuww8Bk65ow",
+          "value": "4MY1S7iMt3s7eNp0WpnqIJR0H8jTTTNwcQEilZisfmXymgtD9lV7YAnlRLkH1__mR5YE7kcUHJ5FMpthDF7ZDw"
+        }
+      },
+      "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAuRpAxhrz5bOFIn5GmicNWZtNDSSruqwfTGlBmKH1WOs=\n-----END PUBLIC KEY-----\n"
+    }
+  }
+}
