@@ -5,6 +5,7 @@ import { mkdir, open, readdir, readFile, rename, stat, writeFile } from "node:fs
 import { findPackageJSON } from "node:module";
 import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { isPromise } from "node:util/types";
 import { basename, extname, join } from "node:path";
 import { confinePath } from "@red-cup-engineering/computer-filepath-engineering-services-section/filepath";
 import { searchImmutableRoomIndex } from "@red-cup-engineering/markdown-engineering-services-section/vault/room-index-search";
@@ -202,8 +203,9 @@ async function writeObservations(file, records) {
  * the index lives for the process. Either way a text search reads only the documents that
  * moved since the last one.
  */
-export async function openMarkdownVault({ root, region = "", excludes = ARCHIVE_EXCLUDES, limit = 100_000, maxScan = 100_000, observations = null, fullText: fullTextFile = null } = {}) {
+export async function openMarkdownVault({ root, region = "", excludes = ARCHIVE_EXCLUDES, limit = 100_000, maxScan = 100_000, observations = null, fullText: fullTextFile = null, admitPath = () => true } = {}) {
   if (typeof root !== "string" || root.trim() === "") throw new TypeError("root is required");
+  if (typeof admitPath !== "function") throw new TypeError("admitPath must be a function");
   let inventory;
   let paths = new Set();
   const records = new Map();
@@ -324,7 +326,7 @@ export async function openMarkdownVault({ root, region = "", excludes = ARCHIVE_
   }
   async function refresh() {
     invalidateFullText();
-    inventory = await observeMarkdownVaultDirectory({ root, region, excludes, limit, maxScan });
+    inventory = await observeMarkdownVaultDirectory({ root, region, excludes, limit, maxScan, admitPath });
     const next = new Set(inventory.paths);
     for (const path of records.keys()) if (!next.has(path)) records.delete(path);
     paths = next;
@@ -397,6 +399,12 @@ export async function openMarkdownVault({ root, region = "", excludes = ARCHIVE_
   function admitNew(path) {
     if (typeof path !== "string" || !/\.(?:md|markdown)$/iu.test(path)) throw new TypeError("path must name a Markdown file");
     confinePath({ root, path });
+    const accepted = admitPath(path);
+    if (typeof accepted !== "boolean") {
+      if (isPromise(accepted)) Promise.prototype.then.call(accepted, undefined, () => {});
+      throw new TypeError("admitPath must return a boolean");
+    }
+    if (!accepted) throw new RangeError("document is outside the admitted knowledge scope");
     if (paths.has(path)) throw new RangeError(`document already exists: ${path}`);
   }
   // — text: the archive's words and shingles, for search and for finding what says one thing —
@@ -734,3 +742,4 @@ export async function openMarkdownVault({ root, region = "", excludes = ARCHIVE_
     },
   });
 }
+
