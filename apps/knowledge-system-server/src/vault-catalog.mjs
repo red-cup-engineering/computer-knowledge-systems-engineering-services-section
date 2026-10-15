@@ -6,7 +6,7 @@ import { readFile, realpath } from 'node:fs/promises';
 // tree a second time; CAIRN's reading is the only source of rooms and doors.
 
 import { readFileSync, statSync } from 'node:fs';
-import { dirname, resolve as resolvePath, sep } from 'node:path';
+import { dirname, posix, resolve as resolvePath, sep } from 'node:path';
 import { makeNiUri, niUriWithContentType } from '@red-cup-engineering/uri-services-section/ni-uri';
 import { extensionType } from '@red-cup-engineering/computer-serialized-content-engineering-services-section/services/http-data-services-section/src/media-type';
 import { cslReference } from '@red-cup-engineering/csl-json-services-section/record-formatting';
@@ -42,13 +42,15 @@ function isoDate(room) {
 // document is a candidate, wherever it sits.
 const ABSOLUTE_OR_FRAGMENT = /^(?:[a-z][a-z0-9+.-]*:|\/|#)/iu;
 
-function rewriteDocumentLinks(value, rewrite) {
+function rewriteDocumentLinks(value, rewrite, documentsOnly = false) {
   if (Array.isArray(value)) {
-    for (const entry of value) rewriteDocumentLinks(entry, rewrite);
+    for (const entry of value) rewriteDocumentLinks(entry, rewrite, documentsOnly);
     return value;
   }
   if (!value || typeof value !== 'object') return value;
-  if (value.kind === 'link' && typeof value.href === 'string' && !ABSOLUTE_OR_FRAGMENT.test(value.href)) {
+  if (value.kind === 'link' && typeof value.href === 'string'
+      && !ABSOLUTE_OR_FRAGMENT.test(value.href)
+      && (!documentsOnly || DOCUMENT_LINK.test(value.href))) {
     // A relative link is a document reference by another syntax. Resolved, it
     // becomes the cell's route; unresolved, it becomes a wikilink token, which
     // renders as a potential link exactly as an unresolved wikilink does.
@@ -63,8 +65,32 @@ function rewriteDocumentLinks(value, rewrite) {
     }
     return value;
   }
-  for (const entry of Object.values(value)) rewriteDocumentLinks(entry, rewrite);
+  for (const entry of Object.values(value)) rewriteDocumentLinks(entry, rewrite, documentsOnly);
   return value;
+}
+
+/** Resolve admitted source-relative Markdown links for a live CAIRN reading.
+ * Shares the same AST mutation/traversal as vault publication; unlike a
+ * published room route, documentUrl names an admitted *source document*.
+ * Only Markdown documents are eligible: other link types retain their text.
+ * Admission must have occurred in the existing archive, not a caller's guess. */
+export function resolveReadingLinks(tree, { document, archive, documentUrl } = {}) {
+  if (typeof document !== 'string' || typeof archive?.admit !== 'function' || typeof documentUrl !== 'function') {
+    throw new TypeError('source reading links require document, admitted archive, and document URL function');
+  }
+  return rewriteDocumentLinks(tree, href => {
+    const fragmentStart = href.indexOf('#');
+    const target = fragmentStart < 0 ? href : href.slice(0, fragmentStart);
+    const anchor = fragmentStart < 0 ? '' : href.slice(fragmentStart);
+    let path;
+    try {
+      path = posix.normalize(posix.join(posix.dirname(document), decodeURIComponent(target)));
+      archive.admit(path);
+    } catch {
+      return null;
+    }
+    return documentUrl(path) + anchor;
+  }, true);
 }
 
 // A relative embed names a file beside its note (an image, a recording, a
