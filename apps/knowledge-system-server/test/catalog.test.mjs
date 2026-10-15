@@ -6,6 +6,7 @@ import test from 'node:test';
 
 import { assembleCatalog, makeResolver, parseCell } from '../src/catalog.mjs';
 import { createFilesystemContentReader } from '../src/content-reader.mjs';
+import { resolveReadingLinks } from '../src/vault-catalog.mjs';
 
 const routeName = (path) => String(path).split('/').filter(Boolean).map((part) => part
   .normalize('NFKD').replace(/[\u0300-\u036f]/gu, '').toLowerCase()
@@ -58,4 +59,44 @@ test('parseCell exposes CAIRN cell admission independently of publishing', () =>
   assert.equal(refusals.length, 0);
   assert.equal(cell.name, 'note');
   assert.match(cell.address, /^ni:\/\/\/sha-256;/u);
+});
+
+test('CAIRN live source readings resolve only admitted Markdown paths through the existing vault traversal', () => {
+  const seen = [];
+  const archive = { admit(path) {
+    seen.push(path);
+    if (path !== 'science/content/known.md') throw new RangeError('not in admitted corpus');
+  } };
+  const tree = { blocks: [{ kind: 'paragraph', children: [
+    { kind: 'link', label: 'Known', href: '../known.md#section' },
+    { kind: 'link', label: 'Denied', href: '../../protected.md' },
+    { kind: 'link', label: 'Picture', href: './drawing.png' },
+    { kind: 'link', label: 'External', href: 'https://example.org/known.md' },
+    { kind: 'link', label: 'Anchor', href: '#local' },
+    { kind: 'link', label: 'Broken escape', href: '%FF.md' },
+    { kind: 'image', alt: 'Embed', src: '../photo.png' },
+  ] }] };
+  const returned = resolveReadingLinks(tree, {
+    document: 'science/content/notes/current.md',
+    archive,
+    documentUrl: path => 'https://l-space.example/knowledge?document=' + encodeURIComponent(path),
+  });
+  assert.strictEqual(returned, tree);
+  const links = tree.blocks[0].children;
+  assert.deepEqual(links[0], { kind: 'link', label: 'Known',
+    href: 'https://l-space.example/knowledge?document=science%2Fcontent%2Fknown.md#section' });
+  assert.deepEqual(links[1], { kind: 'wikilink', label: 'Denied', target: '../../protected' });
+  assert.deepEqual(links[2], { kind: 'link', label: 'Picture', href: './drawing.png' });
+  assert.deepEqual(links[3], { kind: 'link', label: 'External', href: 'https://example.org/known.md' });
+  assert.deepEqual(links[4], { kind: 'link', label: 'Anchor', href: '#local' });
+  assert.deepEqual(links[5], { kind: 'wikilink', label: 'Broken escape', target: '%FF' });
+  assert.deepEqual(links[6], { kind: 'image', alt: 'Embed', src: '../photo.png' });
+  assert.deepEqual(seen, ['science/content/known.md', 'science/protected.md']);
+});
+
+test('CAIRN live document links refuse missing source admission instead of accepting a guessed route', () => {
+  const tree = [{ kind: 'link', href: '../thing.md', label: 'Thing' }];
+  assert.throws(() => resolveReadingLinks(tree, { document: 'a.md', archive: null, documentUrl: x => x }), TypeError);
+  assert.throws(() => resolveReadingLinks(tree, { document: 'a.md', archive: { admit() {} }, documentUrl: null }), TypeError);
+  assert.deepEqual(tree, [{ kind: 'link', href: '../thing.md', label: 'Thing' }]);
 });
