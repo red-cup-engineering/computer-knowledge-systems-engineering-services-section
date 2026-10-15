@@ -1,4 +1,4 @@
-import { runJavascriptNodeOperation } from "@red-cup-engineering/javascript-node-services-section/operation";
+import { runJavascriptNodeOperation } from "@red-cup-engineering/javascript-node-operation-engineering-services-section/operation";
 /**
  * @module search-pubmed
  * The effect: queries PubMed's E-utilities `esearch` endpoint for matching

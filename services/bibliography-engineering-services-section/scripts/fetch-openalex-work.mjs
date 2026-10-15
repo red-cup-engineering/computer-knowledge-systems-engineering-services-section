@@ -5,7 +5,7 @@
  */
 
 import { openAlexWorkToCsl } from "@red-cup-engineering/csl-json-services-section/scripts/project-openalex-work-csl.mjs";
-import { runJavascriptNodeOperation } from "@red-cup-engineering/javascript-node-services-section/operation";
+import { runJavascriptNodeOperation } from "@red-cup-engineering/javascript-node-operation-engineering-services-section/operation";
 
 const DOI_PATTERN = /^10\.\d{4,9}\//u;
 

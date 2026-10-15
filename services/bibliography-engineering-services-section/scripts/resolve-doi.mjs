@@ -7,7 +7,7 @@
 
 import { bareDoi } from "@red-cup-engineering/csl-json-services-section";
 import { crossrefWorkToCsl } from "@red-cup-engineering/csl-json-services-section/scripts/project-crossref-work-csl.mjs";
-import { runJavascriptNodeOperation } from "@red-cup-engineering/javascript-node-services-section/operation";
+import { runJavascriptNodeOperation } from "@red-cup-engineering/javascript-node-operation-engineering-services-section/operation";
 
 /**
  * Resolve one DOI (bare, `doi:`-prefixed, or `https://doi.org/`-prefixed)

@@ -44,12 +44,12 @@
     "@red-cup-engineering/csl-json-services-section": "workspace:*",
     "@red-cup-engineering/computer-file-engineering-services-section": "workspace:*",
     "@red-cup-engineering/html-structural-projection-service": "workspace:*",
-    "@red-cup-engineering/javascript-node-services-section": "workspace:*",
     "@red-cup-engineering/json-services-section": "workspace:*",
     "@red-cup-engineering/markdown-engineering-services-section": "workspace:*",
     "@red-cup-engineering/witness-journal-document-service": "workspace:*",
     "@red-cup-engineering/http-services-section": "workspace:*",
-    "@red-cup-engineering/json-schema-services-section": "workspace:*"
+    "@red-cup-engineering/json-schema-services-section": "workspace:*",
+    "@red-cup-engineering/javascript-node-operation-engineering-services-section": "workspace:*"
   },
   "keywords": [
     "bibliography",
