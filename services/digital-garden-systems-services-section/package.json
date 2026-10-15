@@ -21,7 +21,8 @@
     "@red-cup-engineering/immutable-content-custody-service": "workspace:*",
     "@red-cup-engineering/knowledge-system-server": "workspace:*",
     "@red-cup-engineering/markdown-engineering-services-section": "workspace:*",
-    "@red-cup-engineering/mcp-engineering-services-section": "workspace:*"
+    "@red-cup-engineering/mcp-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/organizing": "workspace:*"
   },
   "scripts": {
     "test": "node --test test/*.test.mjs"

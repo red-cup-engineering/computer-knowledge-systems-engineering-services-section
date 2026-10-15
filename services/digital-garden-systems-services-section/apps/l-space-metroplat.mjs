@@ -16,6 +16,7 @@ import { createReviewStore } from '@red-cup-engineering/graphical-knowledge-game
 import { join, resolve } from 'node:path';
 import { openArchive } from '@red-cup-engineering/knowledge-system-server/archive';
 import { selectDeclaredDirectoryRoot, assertDeclaredDirectoryRoot } from '@red-cup-engineering/computer-file-engineering-services-section/declared-directory-root';
+import { readProfessionalRepertoire, selectProfessionalOfficeForms, professionalRepertoireJsonLd } from '@red-cup-engineering/organizing/agency/professional-repertoire';
 import { searchAndFetchTools, vaultMcpTools } from '@red-cup-engineering/knowledge-system-server/mcp-tools';
 import { textRepr } from '@red-cup-engineering/http-services-section/representation';
 
@@ -154,6 +155,94 @@ export function lSpaceMetroplat({config, admission, configuration = {}, archive:
     id:'lspace.historical-entry-script',match:'/knowledge/entry.js',methods:['GET'],public:true,
     handler:()=>textRepr(`const room=new RegExp('^#/(room|public)/([a-f0-9]{64})$','u').exec(location.hash);location.replace(room ? '/knowledge'+(room[1]==='public'?'/public':'')+'?room='+room[2] : '/knowledge');`,{type:'text/javascript; charset=utf-8',cacheControl:{noStore:true}}),
   }]};
+  // The Academy's professional forms live in Operations. They are source
+  // descriptions, not appointments. A Group instance must bind the actual
+  // installed corpus; absent input means this face does not exist at all.
+  const professionalSource = configuration.professionalRepertoire;
+  if (professionalSource !== undefined && (
+    typeof professionalSource?.path !== 'string' || !professionalSource.path ||
+    typeof professionalSource?.source?.repository !== 'string' ||
+    !/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/u.test(professionalSource.source.repository) ||
+    typeof professionalSource?.source?.commit !== 'string' ||
+    !/^[a-f0-9]{40}$/u.test(professionalSource.source.commit) ||
+    typeof professionalSource?.source?.pathPrefix !== 'string' ||
+    !/^[a-z0-9-]+(?:\/[a-z0-9-]+)*$/u.test(professionalSource.source.pathPrefix)
+  )) throw new TypeError('L-Space professional repertoire needs an installed source path and exact declared source selection');
+  let heldProfession;
+  const professionals = () => heldProfession ??= Promise.resolve().then(() => readProfessionalRepertoire({
+    root: selectDeclaredDirectoryRoot(config.repositoryRoot, professionalSource.path),
+    source: professionalSource.source,
+  })).catch(error => { heldProfession = undefined; throw error; });
+  const professionResource = professionalSource === undefined ? undefined : {
+    resources: [{
+      id:'lspace.professional-repertoire',
+      match:'/knowledge/professional-repertoire',
+      methods:['GET'],
+      handler:async context => {
+        // Protect actual Operations details even when an HTTP route or MCP
+        // descriptor is accidentally made anonymous by another package.
+        if (!await admission?.identifyContext(context)) {
+          return new Response('Reader admission required', {status:401,headers:{'cache-control':'no-store'}});
+        }
+        const params=context.url.searchParams;
+        const duty=params.get('duty'), skill=params.get('skill'), format=params.get('format');
+        const valid=value=>value===null || (value.length>0 && value.length<=128 &&
+          /^[a-z0-9]+(?:-[a-z0-9]+)*$/u.test(value));
+        if (!valid(duty) || !valid(skill) || (format!==null && format!=='jsonld')) {
+          return {...page('<p role="alert">Use one exact professional duty or skill identifier.</p>'),status:400};
+        }
+        try {
+          const read=await professionals();
+          if (format==='jsonld') {
+            return textRepr(JSON.stringify(professionalRepertoireJsonLd(read)), {
+              type:'application/ld+json',cacheControl:{noStore:true},
+            });
+          }
+          const selected=duty!==null || skill!==null
+            ? selectProfessionalOfficeForms(read,{
+              ...(duty===null?{}:{requiredDuties:[duty]}),
+              ...(skill===null?{}:{requiredSkills:[skill]}),
+            })
+            : {selection:'all-source-forms',candidates:read.offices};
+          const offices=selected.candidates.map(office=>{
+            const source=read.offices.find(item=>item.id===office.id);
+            if (!source) throw new TypeError('selected office is absent from qualified source');
+            const dutyLinks=source.duties.map(id=>{
+              const value=read.duties.find(item=>item.id===id);
+              if (!value) return '<li>'+escape(id)+' — unresolved original duty</li>';
+              const work=value.work && read.works.find(item=>item.id===value.work);
+              return '<li>'+escape(value.name)+' ('+escape(value.id)+')'+
+                (work?'<p>Work: '+escape(work.from??'')+' → '+escape(work.to??'')+
+                  '. Cost: '+escape(work.cost??'not specified')+'</p>':'')+'</li>';
+            }).join('');
+            const positions=source.positions.map(position=>'<li><strong>'+escape(position.kind)+
+              '</strong>: '+escape(position.proposition)+'</li>').join('');
+            const unresolved=source.unrealized.map(item=>'<li>'+escape(item)+'</li>').join('');
+            return '<section><h3>'+escape(source.name)+'</h3><p>'+escape(source.normativeStructure??'No authored normative description.')+
+              '</p><h4>Authored deontic positions ('+source.positions.length+')</h4><ul>'+positions+'</ul>'+
+              '<h4>Referenced duties</h4><ul>'+dutyLinks+'</ul>'+
+              '<h4>Unrealized conditions ('+source.unrealized.length+')</h4><ul>'+unresolved+'</ul>'+
+              '<details><summary>Source and classification</summary><p>Reusable office form; no incumbent or grant. '+
+              'Original jurisdiction label: '+escape(source.jurisdiction??'unspecified')+'</p><code>'+
+              escape(source.sourceIri)+'</code></details></section>';
+          }).join('');
+          const gaps=read.unresolved.map(gap=>'<li>'+escape(JSON.stringify(gap))+'</li>').join('');
+          return page('<article><h2>Professional forms, not appointed offices</h2>'+
+            '<p>Read from the original Operations repertoire: '+read.counts.offices+' office forms, '+
+            read.counts.duties+' duties and '+read.counts.works+' work forms. '+
+            read.coverage.enumerated+' original JSON source files enumerated and content-hashed, all '+read.coverage.opened+
+            ' catalog-listed records read. Other file formats are outside this qualification.</p>'+
+            '<form action="/knowledge/professional-repertoire"><label>Duty <input name="duty"></label>'+
+            '<label> Skill <input name="skill"></label><button>Find source forms</button></form>'+
+            '<p>Selection: '+escape(selected.selection)+'. No result confers appointment, authority, a contract or completed work.</p>'+
+            offices+'<h3>Unresolved original references ('+read.unresolved.length+')</h3><ul>'+gaps+'</ul>'+
+            '<p><a href="/knowledge/professional-repertoire?format=jsonld">Attributed JSON-LD reading</a></p></article>');
+        } catch {
+          return {...page('<p role="alert">The original Operations repertoire is unavailable, incomplete or has changed without catalog receiving. No empty result is substituted.</p>'),status:503};
+        }
+      },
+    }],
+  };
   const reader = {archive, canWrite:false};
   // Omit write descriptors entirely: visibility is not an authorization check.
   const descriptors = [
@@ -225,9 +314,9 @@ export function lSpaceMetroplat({config, admission, configuration = {}, archive:
   const readerEmails=new Set((settings.LSPACE_ALLOWED_EMAILS ?? configuration.readerEmails ?? '').split(',').map(email=>email.trim().toLowerCase()).filter(Boolean));
   const readerAccess={
     admitEmail:email=>typeof email === 'string' && readerEmails.has(email.trim().toLowerCase()),
-    allowsRequest:(path,method)=>['GET','HEAD'].includes(method) && (path === '/knowledge' || path === '/knowledge/public' || path.startsWith('/.well-known/ni/'))
+    allowsRequest:(path,method)=>['GET','HEAD'].includes(method) && (path === '/knowledge' || path === '/knowledge/public' || path === '/knowledge/professional-repertoire' || path.startsWith('/.well-known/ni/'))
       || path === '/api/v1/reviews',
     allowsTool:name=>tools.some(tool=>tool.name === name),
   };
-  return {readerAccess,applications:[historicalEntry,reading,publicReading,vocabulary,media,...(notebooks ? [notebooks] : []),...(reviews ? [reviews] : []),...(authoring ? [authoring] : [])],tools};
+  return {readerAccess,applications:[historicalEntry,reading,publicReading,vocabulary,media,...(professionResource ? [professionResource] : []),...(notebooks ? [notebooks] : []),...(reviews ? [reviews] : []),...(authoring ? [authoring] : [])],tools};
 }
