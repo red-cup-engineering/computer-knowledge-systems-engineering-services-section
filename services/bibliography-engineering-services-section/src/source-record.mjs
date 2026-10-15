@@ -20,7 +20,7 @@ import { validateSchemaInstance } from "@red-cup-engineering/json-schema-service
 import { formatCitationLabel, fromCslItem, makeCitekey } from "@red-cup-engineering/csl-json-services-section/record-formatting";
 import { issuedYear } from "@red-cup-engineering/csl-json-services-section";
 import { mutateMarkdownFrontmatter } from "@red-cup-engineering/markdown-engineering-services-section/mutate-markdown-frontmatter";
-import { readMarkdownFrontmatter } from "@red-cup-engineering/markdown-engineering-services-section/read-markdown-frontmatter";
+import { readMarkdownFrontmatter } from "@red-cup-engineering/read-markdown-frontmatter-service";
 import { isDeepStrictEqual } from "node:util";
 import { searchRegister } from "./register.mjs";
 
