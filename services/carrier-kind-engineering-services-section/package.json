@@ -17,7 +17,8 @@
   "files": [
     "data/records/",
     "src/",
-    "scripts/"
+    "scripts/",
+    "schemas/"
   ],
   "scripts": {
     "check": "node --check src/*.mjs && node --check scripts/*.mjs && node --check test/*.test.mjs",
