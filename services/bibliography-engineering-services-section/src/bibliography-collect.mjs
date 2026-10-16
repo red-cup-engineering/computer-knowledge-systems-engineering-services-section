@@ -1,4 +1,4 @@
-import { readMarkdownFrontmatter } from "@red-cup-engineering/markdown-engineering-services-section/read-markdown-frontmatter";
+import { readMarkdownFrontmatter } from "@red-cup-engineering/read-markdown-frontmatter-service";
 import { admitReferenceEntry } from "../schemas/bibliography/reference-entry.schema.mjs";
 import { recognizeBibliographyMarkdown } from "./bibliography-carrier.mjs";
 import { readFileSync } from "node:fs";
