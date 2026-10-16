@@ -5,7 +5,7 @@
  */
 
 import { pubmedSummaryToCsl } from "@red-cup-engineering/csl-json-services-section/scripts/project-pubmed-summary-csl.mjs";
-import { runJavascriptNodeOperation } from "@red-cup-engineering/javascript-node-operation-engineering-services-section/operation";
+import { runJavascriptNodeOperation } from "@red-cup-engineering/javascript-node-operation-service";
 
 /**
  * Fetch and normalize PubMed summaries for a set of PMIDs.
