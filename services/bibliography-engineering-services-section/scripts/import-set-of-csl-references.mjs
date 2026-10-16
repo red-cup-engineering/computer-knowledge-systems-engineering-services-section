@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { fromCslItem as formatCslItem } from "@red-cup-engineering/csl-json-services-section/record-formatting";
 import { admitReferenceEntry } from "../schemas/bibliography/reference-entry.schema.mjs";
-import { runJavascriptNodeOperation } from "@red-cup-engineering/javascript-node-services-section/operation";
+import { runJavascriptNodeOperation } from "@red-cup-engineering/javascript-node-operation-service";
 
 export function fromCslItem(item, options = {}) {
   return formatCslItem(item, { ...options, admitReferenceEntry });
