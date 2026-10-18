@@ -3,6 +3,11 @@
   "version": "0.5.1",
   "type": "module",
   "description": "Engineering policy and operations for depth-2 bibliography Markdown carriers and the depth-1 references: maps they reconcile against across a science section's carrier corpus, plus bibliographic-record retrieval (OpenAlex, PubMed, CrossRef) and systematic-review screening of the candidates it surfaces.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/red-cup-engineering/computer-systems-engineering-services-section.git",
+    "directory": "services/computer-knowledge-systems-services-section/services/bibliography-engineering-services-section"
+  },
   "exports": {
     ".": "./src/bibliography-carrier.mjs",
     "./carrier": "./src/bibliography-carrier.mjs",
