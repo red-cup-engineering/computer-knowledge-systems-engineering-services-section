@@ -1,5 +1,0 @@
-[
-  { "dedupeKey": "doi:10.1038/nature14539", "decision": "include", "criterion": "meets population and outcome criteria" },
-  { "dedupeKey": "title:attention is all you need", "decision": "include", "criterion": "meets population and outcome criteria" },
-  { "dedupeKey": "title:attention is all you need a survey", "decision": "exclude", "criterion": "wrong-study-design" }
-]
