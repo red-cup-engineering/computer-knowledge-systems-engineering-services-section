@@ -1,0 +1,48 @@
+[submodule "corpus-normalizer"]
+	path = apps/corpus-normalizer
+	url = https://github.com/red-cup-engineering/corpus-normalizer.git
+	branch = main
+[submodule "graphical-knowledge-game-server"]
+	path = apps/graphical-knowledge-game-server
+	url = https://github.com/red-cup-engineering/graphical-knowledge-game-server.git
+	branch = main
+[submodule "graphical-knowledge-system-server"]
+	path = apps/graphical-knowledge-system-server
+	url = https://github.com/red-cup-engineering/graphical-knowledge-system-server.git
+	branch = main
+[submodule "knowledge-system-server"]
+	path = apps/knowledge-system-server
+	url = https://github.com/red-cup-engineering/knowledge-system-server.git
+	branch = main
+[submodule "static-site-publisher"]
+	path = apps/static-site-publisher
+	url = https://github.com/red-cup-engineering/static-site-publisher.git
+	branch = main
+[submodule "services/computer-systems-engineering-services-section/services/computer-knowledge-systems-services-section/services/digital-garden-systems-services-section"]
+	path = services/digital-garden-systems-services-section
+	url = https://github.com/red-cup-engineering/digital-garden-systems-services-section.git
+	branch = main
+[submodule "term-engineering-services-section"]
+	path = services/computer-glossary-systems-engineering-services-section/services/term-engineering-services-section
+	url = https://github.com/red-cup-engineering/term-engineering-services-section.git
+	branch = main
+[submodule "medical-glossary-delivery-service"]
+	path = services/computer-glossary-systems-engineering-services-section/services/medical-glossary-delivery-service
+	url = https://github.com/red-cup-engineering/medical-glossary-delivery-service.git
+	branch = main
+[submodule "glossary-census-service"]
+	path = services/computer-glossary-systems-engineering-services-section/services/glossary-census-service
+	url = https://github.com/red-cup-engineering/glossary-census-service.git
+	branch = main
+[submodule "corpus-census-service"]
+	path = services/corpus-census-service
+	url = https://github.com/red-cup-engineering/corpus-census-service.git
+	branch = main
+[submodule "carrier-kind-engineering-services-section"]
+	path = services/carrier-kind-engineering-services-section
+	url = https://github.com/red-cup-engineering/carrier-kind-engineering-services-section.git
+	branch = main
+[submodule "bibliography-engineering-services-section"]
+	path = services/bibliography-engineering-services-section
+	url = https://github.com/red-cup-engineering/bibliography-engineering-services-section.git
+	branch = main
