@@ -20,7 +20,7 @@
 	branch = main
 [submodule "services/computer-systems-engineering-services-section/services/computer-knowledge-systems-services-section/services/digital-garden-systems-services-section"]
 	path = services/digital-garden-systems-services-section
-	url = https://github.com/red-cup-engineering/digital-garden-systems-services-section.git
+	url = https://github.com/red-cup-engineering/digital-garden-systems-engineering-services-section.git
 	branch = main
 [submodule "term-engineering-services-section"]
 	path = services/computer-glossary-systems-engineering-services-section/services/term-engineering-services-section
