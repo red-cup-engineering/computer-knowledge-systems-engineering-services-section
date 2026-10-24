@@ -1,12 +1,12 @@
 {
-  "name": "@red-cup-engineering/computer-knowledge-systems-services-section",
+  "name": "@red-cup-engineering/computer-knowledge-systems-engineering-services-section",
   "version": "0.1.0",
   "type": "module",
   "description": "Groups composed computer systems that cultivate, organize, relate, and present knowledge.",
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/red-cup-engineering/computer-knowledge-systems-services-section.git"
+    "url": "git+https://github.com/red-cup-engineering/computer-knowledge-systems-engineering-services-section.git"
   },
   "license": "MIT",
   "funding": {
