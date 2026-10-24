@@ -1,4 +1,4 @@
-# @red-cup-engineering/computer-knowledge-systems-engineering-services-section
+# @red-cup-engineering/computer-knowledge-systems-services-section
 
 <!-- 561-group-standards:badges:start -->
 [![Red Cup Engineering](https://img.shields.io/badge/561%20Group-Red%20Cup%20Engineering-c0392b)](https://github.com/red-cup-engineering)
