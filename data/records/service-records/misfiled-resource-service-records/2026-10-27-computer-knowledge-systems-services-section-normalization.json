@@ -1,0 +1,40 @@
+{
+  "id": "2026-10-27-computer-knowledge-systems-services-section-normalization",
+  "kind": "misfiled-resources-register",
+  "by": "apply-services-section-normalization",
+  "date": "2026-10-27",
+  "moved": [
+    {
+      "from": "content/requirements/corpus-browsed-by-typed-relations.json",
+      "to": "data/records/service-records/requirements-management-service-records/corpus-browsed-by-typed-relations.json",
+      "rule": "requirements-are-service-records",
+      "sourceSha256": "15303a094a20b363789f3cf55af4e8c21e1384ad16e4b05663741307874070be",
+      "destinationSha256": "15303a094a20b363789f3cf55af4e8c21e1384ad16e4b05663741307874070be",
+      "byteIdentical": true
+    },
+    {
+      "from": "content/requirements/geode-meets-then-beats-obsidian-and-vaultmaze.json",
+      "to": "data/records/service-records/requirements-management-service-records/geode-meets-then-beats-obsidian-and-vaultmaze.json",
+      "rule": "requirements-are-service-records",
+      "sourceSha256": "ef7f5a4225d6824cf4342809085252b67b5f0251d5e65b84615e395530d24313",
+      "destinationSha256": "ef7f5a4225d6824cf4342809085252b67b5f0251d5e65b84615e395530d24313",
+      "byteIdentical": true
+    },
+    {
+      "from": "content/requirements/knowledge-is-derived-from-marks-and-standards-and-its-form-is-spo.json",
+      "to": "data/records/service-records/requirements-management-service-records/knowledge-is-derived-from-marks-and-standards-and-its-form-is-spo.json",
+      "rule": "requirements-are-service-records",
+      "sourceSha256": "3c325b22fb7e9f68cb249a903403dd776c53b1f79d701c4f39d46ad4194a0a07",
+      "destinationSha256": "3c325b22fb7e9f68cb249a903403dd776c53b1f79d701c4f39d46ad4194a0a07",
+      "byteIdentical": true
+    }
+  ],
+  "owed": [
+    {
+      "rule": "stray-top-level",
+      "reason": "LICENSE/ is not an entry the services-section law knows; its owner decides where it belongs",
+      "directory": ".",
+      "count": 1
+    }
+  ]
+}
