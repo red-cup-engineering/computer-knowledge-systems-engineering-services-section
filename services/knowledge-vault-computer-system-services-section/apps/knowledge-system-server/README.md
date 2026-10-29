@@ -16,14 +16,6 @@ one file. Metadata and relation queries explicitly observe the admitted corpus, 
 records and revision evidence without caching document bodies. A write updates only its record.
 The default inventory admits up to 100,000 Markdown candidates and reports truncation explicitly.
 
-CAIRN also owns the cell-catalog boundary used by publishing and graphical
-consumers. `./content-reader` observes regular filesystem records with digest
-and dependency evidence; `./catalog` admits publication cells, assembles
-redirects, incoming relations and name resolution; `./cell` exports the shared
-cell vocabulary; and `./vault-catalog` admits Markdown-vault rooms and doors as
-cells. Route spelling remains a presentation policy supplied by the consumer,
-so CAIRN never imports a publisher or renderer.
-
 ## Command application
 
 ```sh
@@ -50,13 +42,3 @@ user configuration.
 
 The predecessor application package mixed all of those duties. CAIRN
 deliberately does not.
-
-## Vocabulary routes
-
-`src/vocabulary.mjs` answers the anonymous `/ns/term/<identity>` and
-`/ns/predicate/<name>` routes with JSON-LD, Turtle, or an HTML redirect. A term's
-graph answers under the house surface policy, through the term owner's
-`glossaryAudienceAdmits`: only a carrier whose own frontmatter says
-`visibility: public` and states no `consent-status` is served; any other term
-is an unknown identity (404), its admission findings included. A browser is
-redirected to the term's public room, or else to its room behind admission.
