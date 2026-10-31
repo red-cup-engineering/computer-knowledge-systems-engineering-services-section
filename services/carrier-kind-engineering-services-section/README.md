@@ -11,13 +11,13 @@ This package holds byte-identical projections of them in `schemas/carriers/` and
 - `npm run project-science-schemas` copies each science schema here. A schema whose `$id` is not `carriers/<kind>` is refused.
 - `npm run generate-ontology` regenerates the science section's `data/ontology/carriers/{ontology,shapes}.ttl` with `json-schema-to-owl-shacl-service`. The term schema is passed as a reference, so the note schema's borrowed keys resolve without minting a term class.
 
-Schema class IRIs are `https://561.group/ns/schema/<$id>`, the namespace the house's other generated ontologies use.
+Schema class IRIs are `https://561.group/ns/schema/<$id>`, the namespace the Group's other generated ontologies use.
 Where `/ns/` finally lives is the program's open question 2, decided in wave 3.1.
 
 ## Kinds
 
 The kind comes from the artifact-role directory (the program's decision 5); `./carrier-path` reads it.
-`carrierKindOf(path)` takes the first directory past the house content containers (`content`, `text`, `documents`, `articles`, `glossary`, `media`) and makes it singular, so `articles/notes/2026/09/30/x.md` is a `note`.
+`carrierKindOf(path)` takes the first directory past the Group content containers (`content`, `text`, `documents`, `articles`, `glossary`, `media`) and makes it singular, so `articles/notes/2026/09/30/x.md` is a `note`.
 `sectionOf`, `roleOf` and `kindOf` are the same functions the corpus census uses.
 
 | Kind | Schema | Required |
